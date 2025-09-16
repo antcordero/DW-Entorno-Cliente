@@ -1,4 +1,4 @@
-//Parte 1
+//Parte 3
 var mensaje = document.getElementById("pParte1");
 var botones = document.querySelectorAll("button");
 
@@ -6,14 +6,12 @@ function mostrarMensaje() {
   var idioma = this.innerText;
 
   if (idioma==='Español') {
-    texto='Bienvenido';
+    document.write("<p>Bienvenido</p>");
   } else if (idioma==='Inglés') {
-    texto='Welcome';
+   document.write("<p>Welcome</p>");
   } else if (idioma==='Ruso') {
-    texto='добро пожаловать';
+    document.write("<p>Добро пожаловать</p>");
   }
-
-  mensaje.innerHTML = texto;
 }
 
 for (var i=0; i<botones.length; i++) {

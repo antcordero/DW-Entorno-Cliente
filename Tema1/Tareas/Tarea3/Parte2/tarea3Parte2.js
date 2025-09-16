@@ -6,14 +6,12 @@ function mostrarMensaje() {
   var idioma = this.innerText;
 
   if (idioma==='Español') {
-    texto='Bienvenido';
+    window.alert('Bienvenido');
   } else if (idioma==='Inglés') {
-    texto='Welcome';
+    window.alert('Welcome');
   } else if (idioma==='Ruso') {
-    texto='добро пожаловать';
+    window.alert('добро пожаловать');
   }
-
-  mensaje.innerHTML = texto;
 }
 
 for (var i=0; i<botones.length; i++) {
