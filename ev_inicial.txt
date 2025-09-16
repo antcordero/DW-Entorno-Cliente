@@ -1,0 +1,51 @@
+Ejercicio 1:
+------------
+
+HTML:
+<div>
+    <button id="botonRedireccion">Redireccionar a un servidor</button>
+</div>
+<div>
+    <h2>Esta página dice</h2>
+    <div id="resultado"></div>
+    <button>Aceptar</button>
+</div>
+
+CSS:
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+JS:
+var opcion;
+var btn = document.querySelector("#botonRedireccion");
+
+opcion = Math.floor(Math.random() * 3);
+
+function calculoEq() {
+    if (opcion===1) {
+    resultado.textContent = "Se ha generado un 1 por tanto nos vamos a Gmail";
+    } else if (opcion===2) {
+        resultado.textContent = "Se ha generado un 2 por tanto nos vamos a Yahoo";
+    } else {
+        resultado.textContent = "Se ha generado un 0 por tanto nos vamos al webmail de Outlook";
+    }
+}
+
+btn.addEventListener("click", calculoEq);
+
+
+Ejercicio 2:
+------------
+for (let fila = 0; fila <= 4; fila++) {
+    let line = '';
+    for (let columna = 0; columna < fila + 1; columna++) {
+        line += '*';
+    }
+    console.log(line);
+}
