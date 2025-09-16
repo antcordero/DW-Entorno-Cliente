@@ -3,7 +3,7 @@ var mensaje = document.getElementById("pParte1");
 var botones = document.querySelectorAll("button");
 
 function mostrarMensaje() {
-  var idioma = this.innerHTML;
+  var idioma=this.innerHTML;
 
   if (idioma==='Español') {
     document.write("<p>Bienvenido</p>");
