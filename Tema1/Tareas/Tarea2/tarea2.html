@@ -1,21 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarea 2</title>
-    <link rel="stylesheet" href="tarea2.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 2</title>
+  <link rel="stylesheet" href="tarea2.css">
 </head>
 <body>
-    <h1>Test</h1>
-    <div id="contenedor">
-        <div class="pregunta">
-            <p id="p1">1. ¿Los pingüinos vuelan en verano?</p>
-            <button class="btn1" value="verdadero">Verdadero</button>
-            <button class="btn1" value="falso">Falso</button>
-        </div>
+  <h1>Test</h1>
+  <div id="contenedor">
+
+    <!-- Pregunta 1 -->
+    <div class="pregunta">
+      <p id="pregunta1">1. ¿Los pingüinos vuelan en verano?</p>
+      <p id="resultado1"></p>
+      <button onclick="comprobarRespuesta1('verdadero')">Verdadero</button>
+      <button onclick="comprobarRespuesta1('falso')">Falso</button>
     </div>
 
-    <script src="tarea2.js"></script>
+    <!-- Pregunta 2 -->
+    <div class="pregunta">
+      <p id="pregunta2">2. ¿El Sol es una estrella?</p>
+      <p id="resultado2"></p>
+      <button onclick="comprobarRespuesta2('verdadero')">Verdadero</button>
+      <button onclick="comprobarRespuesta2('falso')">Falso</button>
+    </div>
+
+    <!-- Pregunta 3 -->
+    <div class="pregunta">
+      <p id="pregunta3">3. ¿2 + 2 es igual a 5?</p>
+      <p id="resultado3"></p>
+      <button onclick="comprobarRespuesta3('verdadero')">Verdadero</button>
+      <button onclick="comprobarRespuesta3('falso')">Falso</button>
+    </div>
+
+    <!-- Pregunta 4 -->
+    <div class="pregunta">
+      <p id="pregunta4">4. ¿La capital de Francia es París?</p>
+      <p id="resultado4"></p>
+      <button onclick="comprobarRespuesta4('verdadero')">Verdadero</button>
+      <button onclick="comprobarRespuesta4('falso')">Falso</button>
+    </div>
+
+  </div>
+
+  <script src="tarea2.js"></script>
 </body>
 </html>

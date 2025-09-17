@@ -12,11 +12,7 @@ body h1 {
     margin: auto;
 }
 
-#contenedor .pregunta {
-    border: 2px solid black;
-    padding: 20px;
-    margin: 15px;
-}   
+  
 
 #contenedor .pregunta button {
     width:80px;
