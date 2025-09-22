@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 3 Switch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <p id="resultado"></p>
+
+    <script>
+
+        var vocal = prompt("Introduce una vocal")
+
+        switch (vocal) {
+            case "a":
+                document.getElementById("resultado").innerText = "Has introducido la vocal a";
+                break;
+            case "e":
+                document.getElementById("resultado").innerText = "Has introducido la vocal e";
+                break;
+            case "i":
+                document.getElementById("resultado").innerText = "Has introducido la vocal i";
+                break;
+            case "o":
+                document.getElementById("resultado").innerText = "Has introducido la vocal o";
+                break;
+            case "u":
+                document.getElementById("resultado").innerText = "Has introducido la vocal u";
+                break;
+            default:
+                document.getElementById("resultado").innerText = "No has introducido una vocal válida";
+        }
+
+    </script>
+
+</body>
+</html>
