@@ -23,4 +23,4 @@ if (opcion == "suma") {
     }
 }
 
-document.getElementById("resultado").innerText = mensaje 
+document.getElementById("resultado").innerText = mensaje;
