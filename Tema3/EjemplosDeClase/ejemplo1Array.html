@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 1 Array</title>
+</head>
+<body>
+    
+    <script>
+
+        //1
+        let localidades = ["Madrid", "Barcelona", "Valencia", "Málaga", "Zaragoza"];
+        console.log(localidades);
+
+        //2
+        for (let i=0; i<localidades.length; i++) {
+            if (i % 2 == 0) {
+                console.log("PAR -> " + localidades[i]);
+            }
+        }
+        
+        //3
+        for (let i=0; i<localidades.length; i++) {
+            if (i % 2 != 0) {
+                console.log("IMPAR -> " + localidades[i]);
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>
