@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Arrays Bidimensionales</title>
+</head>
+<body>
+    
+    <script>
+
+        let arrayColores = new Array(3);
+        arrayColores[0] = new Array(2);
+        arrayColores[1] = new Array(2);
+        arrayColores[2] = new Array(2);
+
+
+        arrayColores[0][0] = "Naranja: #F39C12";
+        arrayColores[0][1] = "#F39C12";
+        arrayColores[1][0] = "Rojo: #F312122";
+        arrayColores[1][1] = "#F31212";
+        arrayColores[2][0] = "Turquesa: #12F3E5";
+        arrayColores[2][1] = "#12F3E5";
+
+        //mostar por consola
+        for (let i = 0; i < arrayColores.length; i++) {
+            for (let j = 0; j < arrayColores[i].length; j++) {
+                console.log("%c" + arrayColores[i][j], ("color: " + arrayColores[i][j] + ";, font-weight: bold;"));
+            }
+        }
+
+    </script>
+
+</body>
+</html>
