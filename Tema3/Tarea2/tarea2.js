@@ -13,21 +13,32 @@ do {
     }
 } while (num !== 0);
 
+//quitar el cero del final
+miArray.pop();
+
 //escribir array por pantalla
 document.write("Lista de números introducidos:<br>");
 document.write("Array: " + miArray + "<br>");
 
 //en orden de menor a mayor
-document.write("El array creado es:<br>");
-var menor = 1;
+//copia
 let nuevoArray = [];
-for (let i = 0; i < miArray.length; i++) {
-    if (miArraay[1] < menor) {
-        menor = miArray[i];
-        nuevoArray.unshift(menor);
-    } else {
-        nuevoArray.push(miArray[i]);
+for (let i=0; i < miArray.length; i++) {
+    nuevoArray[i] = miArray[i];
+}
+//ordenar
+for (let i=0; i<nuevoArray.length - 1; i++) {
+    for (let j=0; j<nuevoArray.length-1-i; j++) {
+        if (nuevoArray[j] > nuevoArray[j+1]) {
+            let aux = nuevoArray[j];
+            nuevoArray[j] = nuevoArray[j+1];
+            nuevoArray[j+1] = aux;
+        }
     }
 }
 
-document.write("Array ordenado de menor a mayor: " + nuevoArray + "<br>");
+//imprimir ordenado
+document.write("El array creado es: <br>");
+for (let i=0; i < nuevoArray.length; i++) {
+    document.write(nuevoArray[i] + ", ");
+}
