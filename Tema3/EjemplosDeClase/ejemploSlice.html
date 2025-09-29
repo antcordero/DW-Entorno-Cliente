@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Slice</title>
+</head>
+<body>
+    <script>
+        let arrayOrigninal = ["10,20,30,40,50,60"];
+        let arrayCortado = arrayOrigninal.slice(1,4);
+        document.write("Array original: <br>");
+        for (let i=0; i<arrayOrigninal.length; i++) {
+            document.write(arrayOrigninal[i] + "-");
+        }
+        document.write("<br>Array resultante después de slice: <br>");
+        for (let i=0; i<arrayCortado.length; i++) {
+            document.write(arrayCortado[i] + "-");
+        }
+    </script>
+</body>
+</html>
