@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+
+    <p>TRADUCTOR DE IDIOMAS (español - inglés, francés e italiano)</p>
+
+    <script>
+        const mapaTraducciones = new Map([
+            ["CASA", ["house", "maison", "casa"]],
+            ["COCHE", ["car", "voiture", "macchina"]],
+            ["PERRO", ["dog", "chien", "cane"]],
+            ["GATO", ["cat", "chat", "gatto"]],
+            ["SOL", ["sun", "soleil", "sole"]]
+        ]);
+
+        for (let [palabra, traducciones] of mapaTraducciones) {
+            document.write("<br>" + palabra + ":<br>" + traducciones.join(", ") + "<br>");
+        }
+    </script>
+</body>
+</html>
