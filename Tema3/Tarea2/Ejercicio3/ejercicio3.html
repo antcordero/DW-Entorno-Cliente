@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <script>
+        let mapaOriginal = new Map([
+            ["D","manzana"],
+            ["C","pera"],
+            ["B","naranja"],
+            ["A","plátano"],
+            ["E","kiwi"]
+        ]);
+
+        console.log("Mapa original:");
+        console.log(mapaOriginal);
+
+        //mapa ordenado por las claves
+        let mapaOrdenado = new Map([...mapaOriginal].sort());
+        console.log("Mapa ordenado por las claves:");
+        for (let [letra, fruta] of mapaOrdenado) {
+            console.log(letra + " => " + fruta);
+        }
+    </script>
+</body>
+</html>
