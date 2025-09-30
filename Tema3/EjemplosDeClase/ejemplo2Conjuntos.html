@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 2 Conjuntos</title>
+</head>
+<body>
+    <script>
+        let nuevoArray = [1, 7, 4, 7, 7, 2];
+        console.log("Array original:" + nuevoArray);
+        let nuevoConjunto = new Set(nuevoArray);
+        console.log("Conjunto sin repetidos:" + nuevoConjunto);
+
+        //Convertir el conjunto de nuevo a array
+        let arraySinRepetidos = [...nuevoConjunto];
+        console.log("Array sin repetidos:" + arraySinRepetidos);
+    </script>
+</body>
+</html>
