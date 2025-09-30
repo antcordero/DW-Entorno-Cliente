@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <script>
+        //array original
+        let lista = [1, 2, 3, 4, 13, 4, 5, 2, 1, 6, 7, 5, 8, 9, 4];
+        document.write("EI array ortginal tiene los siguientes elementos: <br>" + lista + "<br>");
+
+        //encontrar los número repetidos
+        let elementosRepetidos = [];
+        
+        for (let i = 0; i < lista.length; i++) {
+            let elemento = lista[i];
+            let yaEstaEnRepetidos = false;
+            
+            //ver si ya está en el array de repetidos
+            for (let k = 0; k < elementosRepetidos.length; k++) {
+                if (elementosRepetidos[k] === elemento) {
+                    yaEstaEnRepetidos = true;
+                    break;
+                }
+            }
+            
+            //si no está en repetidos[], ver si aparece más de una vez
+            if (!yaEstaEnRepetidos) {
+                let contador = 0;
+                for (let j = 0; j < lista.length; j++) {
+                    if (lista[j] === elemento) {
+                        contador++;
+                    }
+                }
+                if (contador > 1) {
+                    elementosRepetidos.push(elemento);
+                }
+            }
+        }
+
+        document.write("<br>Se encontraron " + elementosRepetidos.length + " elementos repetidos.<br>");
+        document.write("<br>Los elementos repetidos se encuentran en las posiciones:<br>");
+
+        //Mostrar todas las posiciones de los números repetidos
+        for (let i = 0; i < elementosRepetidos.length; i++) {
+            let elementoActual = elementosRepetidos[i];
+            
+            //Buscar las posiciones donde aparece
+            for (let j = 0; j < lista.length; j++) {
+                if (lista[j] === elementoActual) {
+                    document.write("miarray[" + j + "]=" + elementoActual + "<br>");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
