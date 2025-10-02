@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 3</title>
+</head>
+<body>
+    <script>
+
+        //1. Crea un array inicial con los nombres: "Ana", "Luis", "María".
+        let nombres = ["Ana", "Luis", "Maria"];
+        document.write("1. Array original: <br>" + nombres + "<br>");
+
+        //2. Añade "Pedro" al final.
+        nombres.push("Pedro");
+        document.write("<br>2. Array con \"Pedro\" al final: <br>" + nombres + "<br>");
+
+        //3. Añade "Sofía" al principio.
+        nombres.unshift("Sofia");
+        document.write("<br>3. Array con \"Sofia\" al principio: <br>" + nombres + "<br>");
+
+        //4. Quita al primer invitado.
+        nombres.shift();
+        document.write("<br>4. Array sin el primer invitado: <br>" + nombres + "<br>");
+
+        //5. Quita al último invitado.
+        nombres.pop();
+        document.write("<br>5. Array sin el último invitado: <br>" + nombres + "<br>");
+
+        //6. Inserta "Carlos" y "Lucía" en la posición 2.
+        nombres.splice(2, 0, "Carlos", "Lucia");
+        document.write("<br>6. Array con \"Carlos\" y \"Lucia\" en la posición 2: <br>" + nombres + "<br>");
+
+        //7. Une la lista con otra lista ["Miguel", "Laura", "Ana"].
+        let otrosNombres = ["Miguel", "Laura", "Ana"];
+        let listaUnida = nombres.concat(otrosNombres);
+        document.write("<br>7. Array unido con otra lista: <br>" + listaUnida + "<br>");
+
+        //8. Obtén una copia de los elementos entre la posición 1 y 3.
+        let copia = listaUnida.slice(1, 4);
+        document.write("<br>8. Copia de los elementos entre la posición 1 y 3: <br>" + copia + "<br>");
+    
+        //9. Busca la primera posición en la que aparece "Ana".
+        let posicionAna = listaUnida.indexOf("Ana");
+        document.write("<br>9. Primera posición de \"Ana\": <br>" + posicionAna + "<br>");
+
+        //10. Busca la última posición en la que aparece "Ana".
+        let ultimaPosicionAna = listaUnida.lastIndexOf("Ana");
+        document.write("<br>10. Última posición de \"Ana\": <br>" + ultimaPosicionAna + "<br>");
+
+        //11. Verifica si "Laura" está en la lista.
+        let contieneLaura;
+        if (listaUnida.includes("Laura")) {
+            document.write("<br>11. La lista contiene a \"Laura\".<br>");
+        } else {
+            document.write("<br>11. La lista NO contiene a \"Laura\".<br>");
+        }
+
+        //12. Convierte toda la lista en una cadena de texto separada por comas.
+        let cadenaNombres = listaUnida.join(", ");
+        document.write("<br>12. Lista como cadena de texto: <br>" + cadenaNombres + "<br>");
+
+        //13. Ordena la lista alfabéticamente.
+        listaUnida.sort();
+        document.write("<br>13. Lista ordenada alfabéticamente: <br>" + listaUnida + "<br>");
+
+        //14. Invierte el orden de la lista.
+        listaUnida.reverse();
+        document.write("<br>14. Lista en orden inverso: <br>" + listaUnida + "<br>");
+
+    </script>
+</body>
+</html>
