@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Mapas</title>
+</head>
+<body>
+    <script>
+
+        const mapaDNI = new Map();
+
+        // Añadir elementos al mapa
+        mapaDNI.set("12345678A", "Juan");
+        mapaDNI.set("87654321B", "María");
+        mapaDNI.set("11223344C", "Pedro");
+        mapaDNI.set("44332211D", "Laura");
+        mapaDNI.set("55667788E", "Luis");
+
+
+        document.write("LISTADO INIICIAL:<br>");
+        for (let [clave, valor] of mapaDNI) {
+            document.write("NOMBRE: " + valor + " - DNI: " + clave + "<br>");
+        }
+
+        //Modificar la tercera persona
+        document.write("<br>LISTADO MODIFICADO:<br>");
+        mapaDNI.set("11223344C", "Daniel");
+        for (let [clave, valor] of mapaDNI) {
+            document.write("NOMBRE: " + valor + " - DNI: " + clave + "<br>");
+        }
+
+    </script>
+</body>
+</html>
