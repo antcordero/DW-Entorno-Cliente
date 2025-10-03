@@ -23,7 +23,7 @@
             document.write("NOMBRE: " + valor + " - DNI: " + clave + "<br>");
         }
 
-        //Modificar la tercera persona
+        //Modificar la tercera persona -> se puede hacer convirtiendo el mapa en array y usar array.from(mapaDNI.keys())) sabiendo la clave
         document.write("<br>LISTADO MODIFICADO:<br>");
         mapaDNI.set("11223344C", "Daniel");
         for (let [clave, valor] of mapaDNI) {
