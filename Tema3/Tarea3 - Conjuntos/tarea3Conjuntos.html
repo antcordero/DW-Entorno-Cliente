@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 3 - Conjuntos</title>
+</head>
+<body>
+    <script>
+
+        let listaCorreos = ["correo1@example.com", "correo2@example.com", "correo3@example.com", "correo1@example.com"];
+        
+        //1
+        let conjuntoCorreos = new Set(listaCorreos);
+        document.write("Listado del conjunto de correos: ");
+        document.write([...conjuntoCorreos] + "<br>");
+
+        //2
+        conjuntoCorreos.add("nuevo@example.com");
+        document.write("Listado del conjunto de correos con el nuevo correo: ");
+        document.write([...conjuntoCorreos] + "<br>");
+
+        //3
+        document.write("¿Está correo2@example.com? " + conjuntoCorreos.has("correo2@example.com") + "<br>");
+        document.write("¿Está noexiste@example.com? " + conjuntoCorreos.has("noexiste@example.com") + "<br>");
+
+        //4
+        document.write("Total correos únicos: " + conjuntoCorreos.size() + "<br>");
+        
+        //5
+        conjuntoCorreos.delete("correo3@example.com");
+        document.write("Después de eliminar correos3@example.com: " + [...conjuntoCorreos] + "<br>");
+
+        //6
+        const arrayCorreos = [...conjuntoCorreos];
+        arrayCorreos.push("mas1@example.com");
+        arrayCorreos.push("mas2@example.com");
+
+        document.write("Lista expandida de correos: ");
+        for (let correo of arrayCorreos) {
+            document.write(correo + ", ");
+        }
+
+        //7
+        conjuntoCorreos.clear();
+        document.write("<br> Conjunto vacío tras clear(): " + [...conjuntoCorreos] + "<br>");
+
+    </script>
+</body>
+</html>
