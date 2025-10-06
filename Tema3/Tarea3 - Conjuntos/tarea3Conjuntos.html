@@ -25,11 +25,11 @@
         document.write("¿Está noexiste@example.com? " + conjuntoCorreos.has("noexiste@example.com") + "<br>");
 
         //4
-        document.write("Total correos únicos: " + conjuntoCorreos.size() + "<br>");
+        document.write("Total correos únicos: " + conjuntoCorreos.size + "<br>");
         
         //5
         conjuntoCorreos.delete("correo3@example.com");
-        document.write("Después de eliminar correos3@example.com: " + [...conjuntoCorreos] + "<br>");
+        document.write("Después de eliminar correo3@example.com: " + [...conjuntoCorreos] + "<br>");
 
         //6
         const arrayCorreos = [...conjuntoCorreos];
@@ -41,11 +41,10 @@
             document.write(correo + ", ");
         }
         
-
         //7
         conjuntoCorreos.clear();
         let esVacio = conjuntoCorreos.size === 0;
-        document.write("<br>Conjunto vacío tras clear " + esVacio + "<br>");
+        document.write("<br>Conjunto vacío tras clear: " + esVacio + "<br>");
 
     </script>
 </body>
