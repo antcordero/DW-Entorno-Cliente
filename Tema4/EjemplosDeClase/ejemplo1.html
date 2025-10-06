@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 1 Funciones - Ecuación Segundo Grado</title>
+</head>
+<body>
+    <script>
+
+        var a = 5;
+        var b = 10;
+        var c = 2;
+
+        let arrayRespuestas = [];
+
+        calcularEcuacion2ndGrado(a, b, c);
+
+        function calcularEcuacion2ndGrado(a, b, c) {
+            let discriminante = (b * b) - (4 * a * c);
+            if (discriminante > 0) {
+                let raiz1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+                let raiz2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+                arrayRespuestas.push(raiz1);
+                arrayRespuestas.push(raiz2);
+            } else if (discriminante === 0) {
+                let raiz = -b / (2 * a);
+                arrayRespuestas.push(raiz);
+            } else {
+                arrayRespuestas.push("No hay soluciones reales");
+            }
+            document.write("Las soluciones son: " + arrayRespuestas);
+        }
+
+    </script>
+</body>
+</html>
