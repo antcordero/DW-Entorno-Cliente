@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Descuentos</title>
+</head>
+<body>
+    <script>
+
+        var precioIncicial = parseFloat(prompt("Introduce el precio inicial del producto:"));
+        var procentajeDescuento = parseFloat(prompt("Inserte el porcentaje de descuento a aplicar:"));
+
+        var precioFinal = precioIncicial * ((100 - procentajeDescuento) / 100);
+
+        alert("Si el precio de un producto es de " + precioIncicial + "€ y se le aplica un descuento del " + procentajeDescuento + "%, el precio final es de " + precioFinal.toFixed(2) + "€");
+
+    </script>
+</body>
+</html>
