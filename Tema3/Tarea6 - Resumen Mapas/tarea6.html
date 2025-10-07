@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 6 - Mapas</title>
+</head>
+<body>
+    <script>
+        //1 crear un mapa del inventario
+        let inventario = new Map();
+
+        //2 añadir 3 productos
+        inventario.set("manzanas", [10,2]);
+        inventario.set("naranjas", [5,3]);
+        inventario.set("plátanos", [8,1.5]);
+
+        //3 incrementar el stock de manzanas en 5
+        inventario.set("manzanas", [15,2]);
+
+        //4 comprobar si hay pera en el inventario
+        if (inventario.has("peras")) {
+            console.log("Hay peras en el inventario");
+        } else {
+            console.log("No hay peras en el inventario");
+        }
+
+        //5 precio de las naranjas
+        let productoNaranjas = inventario.get("naranjas");
+        let precioNaranjas = productoNaranjas[1];
+        console.log("El precio de las naranjas es: " + precioNaranjas + "€.");
+
+        //6 eliminar plátanos
+        inventario.delete("plátanos");
+
+        //7 Mostrar cada producto y su info
+        for (let [producto, info] of inventario) {
+            console.log(`Producto: ${producto}, Cantidad: ${info[0]}, Precio: ${info[1]}€`);
+        }
+
+        //8 copiar el inventario a otro mapa
+        let inventarioCopia = new Map(inventario);
+
+        //9 limpiar el inventario original
+        inventario.clear();
+        console.log("Inventario original después de limpiar:");
+        console.log(inventario);
+        console.log("Copia del inventario:");
+        console.log(inventarioCopia);
+
+    </script>
+</body>
+</html>
