@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 5 - Resumen Arrays, Conjuntos, Mapas</title>
+</head>
+<body>
+    <script>    
+        let invitados = ["Ana", "Luis", "María", "Ana", "Carlos", "Lucía", "Luis", "María", "Ana"];
+
+        //1 obnetener un array con los nombres sin repetir
+        let conjuntoInvitados = new Set(invitados);
+        const arraySinRepetir = [...conjuntoInvitados];
+
+        document.write("Lista de invitados original: <br>");
+        for (let i=0; i<invitados.length; i++){
+            document.write(i + " -> " + invitados[i]+ "<br>");
+        }
+
+        document.write("<br><br>Lista de invitados sin repetir: <br>");
+        for (let i=0; i<arraySinRepetir.length; i++){
+            document.write(i + " -> " + arraySinRepetir[i] + "<br>");
+        }
+
+        //2 contar cuántas veces aparece cada nombre y guardar en un mapa
+        let mapaInvitados = new Map();
+        let nombre;
+        let cont;
+        for (let i=0; i<invitados.length; i++){
+            nombre = invitados[i];
+            if (mapaInvitados.has(nombre)){
+                cont = mapaInvitados.get(nombre);
+                mapaInvitados.set(nombre, cont + 1);
+            } else {
+                mapaInvitados.set(nombre, 1);
+            }
+        }
+
+        document.write("<br><br>Mapa de invitados y número de veces que aparecen: <br>");
+        for (let [nombre, cantidad] of mapaInvitados) {
+            document.write(nombre + ": " + cantidad + "<br>");
+        }
+
+        //3 crea un conjunto de invitados que hayan aparecido más de una vez
+        let conjuntoMasDeUnaVez = new Set();
+        for (let [nombre, cantidad] of mapaInvitados) {
+            if (cantidad > 1){
+                conjuntoMasDeUnaVez.add(nombre);
+            }
+        }
+
+        document.write("<br><br>Invitados que aparecen más de una vez: <br>");
+        for (let nombre of conjuntoMasDeUnaVez) {
+            document.write(nombre + "<br>");
+        }
+
+    </script>
+</body>
+</html>
