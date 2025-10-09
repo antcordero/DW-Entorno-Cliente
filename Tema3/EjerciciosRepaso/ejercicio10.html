@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10 - Array Aleatorio</title>
+</head>
+<body>
+    <script>
+        let vector = new Array(5);
+        let suma = 0;
+
+        //añadir valrores aleatorios entre 1 y 1000
+        for (let i = 0; i<vector.length; i++) {
+            vector[i] = Math.floor(Math.random() * 1000) + 1;
+        }
+
+        document.write("ELEMENTOS DEL VECTOR: <br>");
+        for (let i = 0; i<vector.length; i++) {
+            document.write("Dato " + i + ": " + vector[i] + "<br>");
+            
+        }
+
+        let ultimo = vector[vector.length - 1];
+        let penultimo = vector[vector.length - 2];
+        suma = ultimo + penultimo;
+        document.write("La suma de los dos últimos componentes: " + suma + "<br>");
+        vector.pop();
+        vector.pop();
+        documet.write("Tamaño del final del vector: " + vector.length + "<br>");
+        
+        document.write("Elementos restantes del vector: <br>");
+        for (let i = 0; i<vector.length; i++) {
+            document.write("Dato " + i + ": " + vector[i] + "<br>");
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 - Sueldo</title>
+</head>
+<body>
+    
+    <script>
+
+        let sueldo = parseFloat(prompt("Introduce el sueldo del empleado: "));
+        let antiguedad = parseInt(prompt("Introduce los años de antigüedad del empleado: "));
+
+        let extra;
+
+        //a
+        if (sueldo < 1500 && antiguedad >= 10) {
+            extra = sueldo * 0.20;
+            document.write("El empleado con sueldo: " + sueldo + "€ y antigüedad: " + antiguedad + " años, recibe un extra de: " + extra + "<br>");
+            document.write("El sueldo total es: " + (sueldo + extra) + "€<br>");
+        } else if (sueldo < 1500 && antiguedad < 10) {
+            extra = sueldo * 0.05;
+            document.write("El empleado con sueldo: " + sueldo + "€ y antigüedad: " + antiguedad + " años, recibe un extra de: " + extra + "<br>");
+            document.write("El sueldo total es: " + (sueldo + extra) + "€<br>");
+        } else {
+            document.write("El empleado con sueldo: " + sueldo + "€ y antigüedad: " + antiguedad + " años, no recibe extra.<br>");
+        }
+
+    </script>
+
+</body>
+</html>

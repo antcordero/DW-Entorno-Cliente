@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array - Elementos del vectort</title>
+</head>
+<body>
+    <script>
+
+        let vector = [];
+        let suma = 0;
+        let suma36 = 0;
+        let cont50 = 0;
+
+        for (let i = 1; i<=8 ; i++) {
+            let numero = parseInt(prompt("Introduce el " + i + "º valor: "));
+            vector.push(numero);
+            suma += numero;
+        }
+    
+        document.write("Los componentes del array son: <br>");
+        for (let i = 0; i < vector.length; i++) {
+            document.write("Dato " + i + ": " + vector[i] + "<br>");
+        }
+        document.write("Suma total de los componentes es: " + suma + "<br>");
+
+        document.wirte("Los componenentes del array mayores de 36 son: <br>");
+        for (let i = 0; i < vector.length; i++) {
+            if (vector[i] > 36) {
+                document.write("Dato " + i + ": " + vector[i] + "<br>");
+                suma36 += vector[i];
+            }
+        }
+        document.write("Suma de los componentes mayores de 36 es: " + suma36 + "<br>");
+
+        document.wirte("Los componenentes del array mayores de 50 son: <br>");
+        for (let i=0; i<vector.length; i++) {
+            if (vector[i] > 50) {
+                document.write("Dato " + i + ": " + vector[i] + "<br>");
+                cont50++;
+            }
+        }
+        document.write("El número de componentes mayores de 50 son: " + cont50 + "<br>");
+        
+
+    </script>
+</body>
+</html>

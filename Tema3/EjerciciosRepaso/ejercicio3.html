@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <script>
+        let dia = parseInt(prompt("Introduce un día (1-31): "));
+        let mes = parseInt(prompt("Introduce un mes (1-12): "));
+        let anio = parseInt(prompt("Introduce un año: "));
+
+        if ((dia > 25 && mes === 12)) {
+            document.write("La fecha ingresada " + dia + "-" + mes + "-" + anio + " corresponde a Navidad.");
+        } else {
+            document.write("La fecha ingresada " + dia + "-" + mes + "-" + anio + " no corresponde a Navidad.");
+        }
+        
+    </script>
+</body>
+</html>
