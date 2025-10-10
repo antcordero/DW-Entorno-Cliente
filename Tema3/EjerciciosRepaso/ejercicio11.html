@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11 - Sueldos</title>
+</head>
+<body>
+    <script>
+        let entrada = 1;
+        let sueldo;
+        let conjuntoSueldos = new Set();
+        do {
+            sueldo = parseFloat(prompt("Introduce el " + entrada + "º sueldo (0 para terminar): "));
+            if (sueldo !== 0) {
+                conjuntoSueldos.add(sueldo);
+                entrada++;
+            }
+        } while (sueldo !== 0);
+
+        document.write("Listado de sueldos: <br>");
+        entrada = 0;
+        for (let elemento of conjuntoSueldos) {
+            document.write("Dato: ["+ entrada +"] = " + elemento + "<br>");
+            entrada++;
+        }
+
+        //ordenar de menor a mayor
+        // ordenar de menor a mayor - SIN usar sort()
+        document.write("<br>Sueldos de menor a mayor: ");
+        let arraySueldos = [...conjuntoSueldos];
+
+        //Algoritmo de burbuja
+        for (let i = 0; i < arraySueldos.length - 1; i++) {
+            for (let j = 0; j < arraySueldos.length - 1 - i; j++) {
+                if (arraySueldos[j] > arraySueldos[j + 1]) {
+                    //Intercambiar valores
+                    let temp = arraySueldos[j];
+                    arraySueldos[j] = arraySueldos[j + 1];
+                    arraySueldos[j + 1] = temp;
+                }
+            }
+        }
+
+        //Mostrar resultados
+        for (let i = 0; i < arraySueldos.length; i++) {
+            document.write(arraySueldos[i]);
+            if (i < arraySueldos.length - 1) {
+                document.write(", ");
+            }
+        }
+
+        //Mostrar resultados ordenados al revés
+        document.write("<br>Sueldos de mayor a menor: ");
+        arraySueldos.reverse();
+        for (let i = 0; i < arraySueldos.length; i++) {
+            document.write(arraySueldos[i]);
+            if (i < arraySueldos.length - 1) {
+                document.write(", ");
+            }
+        }
+
+    </script>
+</body>
+</html>
