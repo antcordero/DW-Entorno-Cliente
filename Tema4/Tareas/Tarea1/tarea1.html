@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 1 - Juego de dados</title>
+</head>
+<body>
+    <script>
+        function jugar(rondas = 5) {
+            let puntuacionJugador1 = 0;
+            let puntuacionJugador2 = 0;
+            let rondasGanadasJ1 = 0;
+            let rondasGanadasJ2 = 0;
+            
+            for (let ronda=1; ronda<=rondas; ronda++) {
+                //tirada del  1
+                let dado1J1 = Math.floor(Math.random()*6)+1;
+                let dado2J1 = Math.floor(Math.random()*6)+1;
+                let totalJ1 = dado1J1 + dado2J1;
+                puntuacionJugador1 += totalJ1;
+                
+                //tirada del 2
+                let dado1J2 = Math.floor(Math.random()*6)+1;
+                let dado2J2 = Math.floor(Math.random()*6)+1;
+                let totalJ2 = dado1J2 + dado2J2;
+                puntuacionJugador2 += totalJ2;
+                
+                if (totalJ1 > totalJ2) {
+                    rondasGanadasJ1++;
+                } else if (totalJ2 > totalJ1) {
+                    rondasGanadasJ2++;
+                }
+                
+                //resultados
+                document.write("<h3>RONDA " + ronda + "</h3>");
+                document.write("Tirada Jugador 1: " + dado1J1 + ", " + dado2J1 + " - TOTAL Jugador 1: " + totalJ1 + "<br>");
+                document.write("Tirada Jugador 2: " + dado1J2 + ", " + dado2J2 + " - TOTAL Jugador 2: " + totalJ2 + "<br><br>");
+            }
+            
+            //puntuaciones
+            document.write("<h3>PUNTUACIONES ACUMULADAS:</h3>");
+            document.write("Jugador 1 ha ganado: " + rondasGanadasJ1 + " rondas<br>");
+            document.write("Jugador 2 ha ganado: " + rondasGanadasJ2 + " rondas<br>");
+            
+            if (rondasGanadasJ1 > rondasGanadasJ2) {
+                document.write("GANADOR: Jugador 1");
+            } else if (rondasGanadasJ2 > rondasGanadasJ1) {
+                document.write("GANADOR: Jugador 2");
+            } else {
+                document.write("EMPATE");
+            }
+        }
+        
+        
+        jugar();
+        //jugar(3);
+        //jugar(10);
+    </script>
+</body>
+</html>
