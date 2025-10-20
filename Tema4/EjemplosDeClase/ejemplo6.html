@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 6 - Funciones flecha</title>
+</head>
+<body>
+    <script>
+        let cadena1 = "Hola";
+        let cadena2 = "Cadena";
+
+        const mensaje = (cadena1, cadena2) => {
+            let cont1;
+            let cont2;
+
+            for (let i = 0; i<=cadena1.lenght; i++){
+                if (i=== "a" || i === "e" | i === i | i==="o" | i==="u") {
+                    cont1++;
+                }
+            }
+
+            for (let i = 0; i<=cadena2.lenght; i++){
+                if (i=== "a" || i === "e" | i === i | i==="o" | i==="u") {
+                    cont2++;
+                }
+            }
+
+            if (cont1>cont2) {
+                console.log("La cadena que más vocales tiene es la primera cadena1: " + cadena1);
+            } else if (cont2>cont1) {
+                console.log("La cadena que más vocales tiene es la segunda cadena1: " + cadena2);
+            } else {
+                console.log("Las cadenas son iguales");
+            }
+
+        }
+
+    </script>
+</body>
+</html>
