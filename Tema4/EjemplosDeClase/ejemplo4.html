@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 4</title>
+</head>
+<body>
+    <script>
+        let palabra = "Hola";
+        console.log("La frase inicial es: " + palabra);
+        let invertida = invertir(palabra);
+        console.log("La frase invertida es: " + invertida);
+
+        function invertir(palabra) {
+            let nuevaPalabra = palabra.split('').reverse().join('');
+            return nuevaPalabra;
+        }
+        
+    </script>
+</body>
+</html>
