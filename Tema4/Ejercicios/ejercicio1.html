@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Mostrar números</title>
+</head>
+<body>
+    <script>
+
+        let menor = parseInt(prompt("Número menor: "));
+        let mayor = parseInt(prompt("Número mayor: "));
+
+        function ej1(menor, mayor){
+            for(let i = menor; i<=mayor; i++) {
+                document.write(i + " - ")
+            }
+        }
+
+        ej1(menor, mayor);
+    </script>
+</body>
+</html>
