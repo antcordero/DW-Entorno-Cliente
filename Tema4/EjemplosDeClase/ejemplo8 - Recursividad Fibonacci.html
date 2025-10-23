@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 8 - Recursividad Serie de Fibonacci</title>
+</head>
+<body>
+    <script>
+        document.write("SERIE DE FIBONACCI DE 10 ELEMENTOS: ");
+
+        let numero = parseInt(prompt("Número: "));
+        let elementos = numero;
+        
+        function Fibonacci(numero){
+            let resultado = 1;
+            if (numero<2) {
+                resultado = 1;
+            } else {
+                resultado = Fibonacci(numero-1) + fibonacci(numero-2);
+            }
+
+            return resultado;
+        }
+
+        document.write("SERIE DE FIBONACCI DE " + numero + " elementos: ");
+
+        for (let i = 0; i<elementos; i++) {
+            document.write(fibonacci(i) + " ");
+        }
+       
+
+    </script>
+</body>
+</html>
