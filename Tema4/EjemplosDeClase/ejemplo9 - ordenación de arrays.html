@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 9 - Pares</title>
+</head>
+<body>
+    <script>
+        let arrayInicial = [5,7,3,1,4,9,2,6,8];
+        document.write("EI array ortginal es: <br>" + arrayInicial + "<br>");
+
+        //orden creciente
+        document.write("<br>El array ordenado de forma creciente es: <br>" + ordenarCreciente(arrayInicial) + "<br>");
+
+        //orden pares al principio e impares al final
+        document.write("<br>EI array separando pares e impares: " + ordenarParesImpares(arrayInicial) + "<br>");
+
+        //funciones
+        function ordenarCreciente(lista) {
+            let arrayOrdenCreciente = lista.sort();
+            return arrayOrdenCreciente;
+        }
+
+        function ordenarParesImpares(lista) {
+            let arrayParesImpares = new Array();
+            for (numero in lista) {
+                if (numero%2==0) {
+                    arrayInicial.unshift(numero);
+                } else {
+                    arrayInicial.push(numero);
+                }
+            }
+            return arrayParesImpares;
+        }
+
+    </script>
+</body>
+</html>
