@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2  - Mostrar menor</title>
+</head>
+<body>
+    <script>
+        
+        let arrayNumeros = new Array();
+        
+        for (let i = 0; i<3; i++) {
+            let numero = parseInt(prompt((i+1) + "º Número: "));
+            arrayNumeros.push(numero);
+        }
+        
+        document.write("Los tres números ingresados son:");
+        for (let i = 0; i<arrayNumeros.length; i++) {
+            document.write(" " + arrayNumeros[i])
+        }
+
+        function mostrarMenor(arrayNumeros) {
+            let nuevoArray = arrayNumeros.sort();
+            let menor = nuevoArray[0]
+
+            /*for (let i = 0; i<arrayNumeros.length; i++) {
+                if (i < menor) {
+                    menor = i;
+                }
+            }*/
+
+            return menor;
+        }
+
+        document.write("<br>El menor de los 3 valores es: " + mostrarMenor(arrayNumeros));
+
+    </script>
+</body>
+</html>
