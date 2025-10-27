@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 1 - Objetos</title>
+</head>
+<body>
+    <script>
+        const usuario = {
+            nombreUsuario: "agar007",
+            contraseña: "agar007_pass",
+            login: function(nombreUsuario, contraseña) {
+                if (nombreUsuario===this.nombreUsuario && contraseña===this.contraseña) {
+                    document.write("Sesión iniciada con éxito");
+                } else {
+                    document.write("Credenciales no válidas");
+                }
+            }
+        }
+
+
+        document.write("L LAVADA CON - usuario: agar037 contraseña: agar007_pass<br>");
+        usuario.login("agar07", "agar007_pass");
+        document.write("L LAVADA CON - usuario: agar037 contraseña: agar007pass<br>");
+        usuario.login("agar07", "agar007pass");
+        
+    </script>
+</body>
+</html>
