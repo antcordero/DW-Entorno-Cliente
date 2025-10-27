@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 - Fizz Buzz</title>
+</head>
+<body>
+    <script>
+        let numero = parseInt(prompt("Número: "));
+        document.write("Número introducido: " + numero + "<br>");
+
+        document.write("RESULTADO FIZZBUZZ <br>");
+        funcionFizzBuzz(numero);
+
+
+        function funcionFizzBuzz(n) {
+            for (let i = 0; i<n; i++) {
+                if ((i%3==0) && (i%5==0)) {
+                    document.write(" Fizz Buzz <br>");
+                } else if (i%3==0) {
+                    document.write(" Fizz <br>");
+                } else if (i%5==0) {
+                    document.write(" Buzz <br>");
+                } else {
+                    document.write(" " + i + "<br>")
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 - Ordenar de menor a mayor</title>
+</head>
+<body>
+    <script>
+        
+        let arrayNumeros = new Array();
+        
+        //pedir los 3 números
+        for (let i = 0; i<3; i++) {
+            let numero = parseInt(prompt((i+1) + "º Número: "));
+            arrayNumeros.push(numero);
+        }
+        
+        //escribir en pantalla
+        document.write("Los tres números ingresados son:");
+        for (let i = 0; i<arrayNumeros.length; i++) {
+            document.write(" " + arrayNumeros[i])
+        }
+
+        document.write("<br>Los valores ordenador de menor a mayor son: ");
+        ordenar(arrayNumeros);
+
+
+        function ordenar(arrayNumeros) {
+            let nuevoArray = arrayNumeros.sort();
+
+            for (let i = 0; i<nuevoArray.length; i++) {
+                document.write(" " + nuevoArray[i]);
+            }
+            
+        }
+    </script>
+</body>
+</html>
