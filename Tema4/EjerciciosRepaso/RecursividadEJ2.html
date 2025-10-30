@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercici 2 Recursividad - Suma de números</title>
+</head>
+<body>
+    <script>
+        let num = parseInt(prompt("Número natural: " ));
+
+        //Funciçon recursiva
+        document.write("Recusiva: La suma de los " + num + " primeros números naturales es: " + sumaNumNaturales(num) + "<br>");
+
+        function sumaNumNaturales(num) {
+            let resultado;
+            if (num == 0) {
+                resultado = 0;
+            } else {
+                resultado = num + sumaNumNaturales(num - 1);
+            }
+            return resultado;
+        }
+    </script>
+</body>
+</html>
