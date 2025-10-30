@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 Recursividad - Exponente</title>
+</head>
+<body>
+    <script>
+        let base = parseFloat(prompt("Base: " ));
+        let exponente = parseInt(prompt("Exponente: " ));
+
+        document.write( base + " elevado a " + exponente + " es " + potencia(base, exponente) );
+
+        function potencia(base, exponente) {
+            let resultado;
+            if (exponente == 0) {
+                resultado = 1;
+            } else {
+                resultado = base * potencia(base, exponente - 1);
+            }
+            return resultado;
+        }
+
+    </script>
+</body>
+</html>
