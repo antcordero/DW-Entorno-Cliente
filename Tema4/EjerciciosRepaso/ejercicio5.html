@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 - Números Primos</title>
+</head>
+<body>
+    <script>
+        let num1 = parseFloat(prompt("Número 1: "));
+        let num2 = parseFloat(prompt("Número 2: "));
+        contarNumPrimos(num1, num2);
+
+        function contarNumPrimos(num1, num2) {
+            document.write("Los números primos entre " + num1 + " y " + num2 + " son: ");
+            for (let i = num1; i<=num2; i++) {
+                if (esPrimo(i)) {
+                    document.write(i + " ");
+                }
+            }
+        }
+
+        function esPrimo(num) {
+            if (num < 2) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;            
+        }
+    </script>
+</body>
+</html>
