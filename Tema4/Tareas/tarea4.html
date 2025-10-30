@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 4 - Palabras Palíndromas</title>
+</head>
+<body>
+    <script>
+        document.write("PALABRAS PALÍNDROMAS<br>");
+        let palabra = prompt("Introducir una palabra: ");
+        document.write("Palabra introducida es: " + palabra + "<br>");
+
+        document.write("¿Es palíndroma? " + esPalindroma(palabra));
+
+        function esPalindroma(palabra) {
+            //array de la palabra
+            let arrayPalabra = [];
+            for (let i = 0; i < palabra.length; i++) {
+                arrayPalabra[i] = palabra.charAt(i);
+            }
+
+            //array con la palabra invertida
+            let arrayPalabraInvertida = [];
+            for (let i = 0; i < palabra.length; i++) {
+                arrayPalabraInvertida[i] = arrayPalabra[palabra.length - 1 - i];
+            }
+
+            if (arrayPalabra.length <= 1) {
+                return true;
+            } else if (arrayPalabra[0] !== arrayPalabraInvertida[0]) {
+                return false;
+            } else {
+                return esPalindroma(palabra.slice(1, -1));
+            }
+            
+
+        }
+    </script>
+</body>
+</html>
