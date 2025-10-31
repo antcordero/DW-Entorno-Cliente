@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 - Invertir una cadena</title>
+</head>
+<body>
+    <script>
+        let cadena = prompt("Introduce una cadena de texto: ");
+
+        //Función recursiva
+        document.write("Cadena original: " + cadena + "<br>");
+        document.write("Recursiva: La cadena invertida es: " + invertirCadena(cadena) + "<br>");
+
+        function invertirCadena(cadena) {
+            let resultado;
+            if (cadena.length == 0) {
+                resultado = "";
+            } else {
+                resultado = cadena.charAt(cadena.length - 1) + invertirCadena(cadena.substring(0, cadena.length - 1));
+            }
+            return resultado;
+        }
+    </script>
+</body>
+</html>
