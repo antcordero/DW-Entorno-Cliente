@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Miembro {
+            constructor(nombre, alta, estado) {
+                this.nombre = nombre;
+                this.alta = alta;
+                this.estado = estado;
+            }
+            
+            cobrar() {
+                document.write("El miembro " + this.nombre + " ha cobrado<br>");
+            }    
+        }
+
+        class Profesor extends Miembro {
+            //numAlumnos = 0;
+            constructor(nombre, alta, estado ,numAlumnos) {
+                super(nombre, alta, estado);
+                this.numAlumnos = 0
+            }
+
+            cobrar() {
+                document.write("El profesor " + this.nombre + " ha cobrado<br>");
+            }
+        }
+
+        class Alumno extends Miembro {
+            //numAsignaturas = 0;
+            constructor(nombre, alta, estado, numAsignaturas) {
+                super(nombre, alta, estado);
+                this.numAsignaturas = 0;
+            }
+
+            cobrar() {
+                document.write("El alumno " + this.nombre + " ha cobrado<br>");
+            }
+        }
+
+        
+        let miembro = new Miembro("Pepe Ruiz", true, "empleado");
+        let profesor = new Profesor("Samuel Orta Pérez", true, "empleado", 0);
+        let alumno = new Alumno("Elena Sánchez Sanz", true, "matriculada", 0);
+
+        miembro.cobrar();
+        profesor.cobrar();
+        alumno.cobrar();
+
+        //Recorrido con getOwnPropertyNames()
+        document.write("<br>Propiedades clase Miembro");
+        for (let propiedad in miembro) {
+            document.write(propiedad + ": " + miembro[propiedad] + "<br>");
+        }
+
+        document.write("<br>Propiedades clase Profesor");
+        for (let propiedad in profesor) {
+            document.write(propiedad + ": " + profesor[propiedad] + "<br>");
+        }
+
+        document.write("<br>Propiedades clase Alumno");
+        for (let propiedad in alumno) {
+            document.write(propiedad + ": " + alumno[propiedad] + "<br>");
+        }
+
+    </script>
+</body>
+</html>
