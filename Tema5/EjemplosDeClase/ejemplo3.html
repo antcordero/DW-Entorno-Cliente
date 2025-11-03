@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 3 - Herencia y polimorfismo</title>
+</head>
+<body>
+    <script>
+        class Miembro {
+            constructor(nombre, alta, estado) {
+                this.nombre = nombre;
+                this.alta = alta;
+                this.estado = estado;
+            }
+            
+            cobrar() {
+                document.write("El miembro " + this.nombre + " ha cobrado<br>");
+            }    
+        }
+
+        class Profesor extends Miembro {
+            //numAlumnos = 0;
+            constructor(nombre, alta, estado ,numAlumnos) {
+                super(nombre, alta, estado);
+                this.numAlumnos = 0
+            }
+
+            cobrar() {
+                document.write("El profesor " + this.nombre + " ha cobrado<br>");
+            }
+        }
+
+        class Alumno extends Miembro {
+            //numAsignaturas = 0;
+            constructor(nombre, alta, estado, numAsignaturas) {
+                super(nombre, alta, estado);
+                this.numAsignaturas = 0;
+            }
+
+            cobrar() {
+                document.write("El alumno " + this.nombre + " ha cobrado<br>");
+            }
+        }
+
+        
+        let miembro = new Miembro("Pepe Ruiz", true, "empleado");
+        let profesor = new Profesor("Samuel Orta Pérez", true, "empleado", 0);
+        let alumno = new Alumno("Elena Sánchez Sanz", true, "matriculada", 0);
+
+        miembro.cobrar();
+        profesor.cobrar();
+        alumno.cobrar();
+
+    </script>
+</body>
+</html>

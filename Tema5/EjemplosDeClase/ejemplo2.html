@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejermplo 2 - Constructores I</title>
+</head>
+<body>
+    <script>
+        class telefono {
+            constructor(cpu,ram,almacenamiento,ancho,alto,numCamaras) {
+                this.cpu = cpu;
+                this.ram = ram;
+                this.almacenamiento = almacenamiento;
+                this.ancho = ancho;
+                this.alto = alto;
+                this.numCamaras = numCamaras;
+            }
+
+            toString() {
+                return "CPU: " + this.cpu + ", RAM: " + this.ram + ", Almacenamiento: " + this.almacenamiento + ", Ancho: " + this.ancho + ", Alto: " + this.alto + ", Número de cámaras: " + this.numCamaras;
+            }
+        }
+
+        let movil1 = new telefono ("Snapdragon 888", "8 GB", "256 GB", "6.5", "12.4", "4");
+        document.write(movil1.toString());
+    </script>
+</body>
+</html>
