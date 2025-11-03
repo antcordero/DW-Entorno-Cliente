@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1 - Películas</title>
+</head>
+<body>
+    <script>
+
+        //Clase
+        class Pelicula {
+            constructor(datos) {
+                this.nombre = datos.nombre;
+                this.anio = datos.anio,
+                this.duracion = datos.duracion;
+                this.genero = datos.genero;
+                this.actores = datos.actores;
+                this.url = datos.url;
+                this.director = datos.director;
+            }
+
+            mostrarInfo() {
+                console.log("Nombre: " + this.nombre);
+                console.log("Anio: " + this.anio);
+                console.log("Duración: " + this.duracion);
+                console.log("Género: " + this.genero);
+                console.log("Actores principales: " + this.actores);
+                console.log("URL: " + this.url);
+                console.log("Director: " + this.director);
+            }
+        }
+
+        //JSON
+        var datos = {
+            "nombre":"El Padrino",
+            "anio":1972,
+            "duracion":175,
+            "genero": "Drama",
+            "actores": ["Marlon Brando", 
+                        "Al Pacino", 
+                        "James Caan", 
+                        "Richard S. Castellano", 
+                        "Robert Duvall", 
+                        "Sterling Hayden"
+                        ],
+            "url": "https://acortar.link/0P25YU",
+            "director":"Francis Ford Coppola"
+        }
+
+        //const datosPelicula = JSON.parse(datos);
+        const datosPelicula = datos;
+
+        //
+        let peli = new Pelicula(datos);
+        peli.mostrarInfo();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 2 - Teléfonos</title>
+</head>
+<body>
+    <script>
+
+        class Telefono {
+            constructor(numero) {
+                this.numero = numero;
+            }
+
+            llamar(){
+                console.log("Llamando al número de Teléfono: " + this.numero);
+            }
+        }
+
+        class Fijo extends Telefono {
+            constructor(numero, extension) {
+                super(numero);
+                this.extension = extension;
+            }
+            
+            llamar(){
+                console.log("Llamando al número de Teléfono Fijo: " + this.numero + " y a la extensión " + this.extension);
+            }
+
+            recibirLlamadas() {
+                console.log("Recibiendo llamada en el número de " + movil.llamar());
+            }
+        }
+
+        class Movil extends Telefono {
+            constructor(numero, compania, mensaje) {
+                super(numero);
+                this.compania = compania;
+                this.mensaje = mensaje;
+            }
+            
+            llamar(){
+                console.log("Llamando al número de Teléfono Móvil: " + this.numero + " y la compañía " + this.compania);
+            }
+
+            recibirLlamadas() {
+                console.log("Recibiendo llamada en el número de " + movil.llamar());
+            }
+
+            enviarMensaje() {
+                console.log("Enviando mensaje desde el número de Telefono " + this.numero + ": " + mensaje);
+            }
+        }
+
+        //Acciones
+
+        let tlf1 = new Telefono("678987543");
+        let tljFijo1 = new Fijo("952789654", "6");
+        let tlfMovil1 = new Movil("789654123", "Movistar", "Hola que tal");
+
+        tlf1.llamar();
+        tljFijo1().llamar();
+        tljFijo1.recibirLlamadas();
+        tlfMovil1.llamar();
+        tlfMovil1.enviarMensaje();
+
+    </script>
+</body>
+</html>
