@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9 - Filtrar números positivos</title>
+</head>
+<body>
+    <script>
+        let arrayDatos = [15, -1, 0, 3, , 12.2, NaN, undefined];
+
+        //filtrar array - función filter
+        let arrayFiltrado = arrayDatos.filter(numero=>numero>0);
+
+        document.write("Array orginial = " + arrayDatos.join(", "));
+        document.write("Array filtrado = " + arrayFiltrado.join(", "));
+    </script>
+</body>
+</html>
