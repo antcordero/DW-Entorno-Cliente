@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6 - Conversor de Temperatura</title>
+</head>
+<body>
+    <script>
+        let opcion = prompt("Elige el tipo de conversión (c / f): ");
+        let temp = parseFloat(prompt("Marque la temperatura: "));
+
+        if (opcion === "c") {
+            document.write("Temperatura en Celsius = " + temp + "ºC.<br>");
+            document.write("Temperatura convertida a Fahrenheit = " + conversionTemp(opcion, temp) + "F.<br>");
+        } else if (opcion === "f") {
+            document.write("Temperatura en Fahrenheit = " + temp + "F.<br>");
+            document.write("Temperatura convertida a Celsius = " + conversionTemp(opcion, temp) + "ºC.<br>");
+        }
+        
+
+        function conversionTemp(op, temp) {
+            let conversion = 0;
+            //Celsius o Fahrenheit
+            if (op === "c") {
+                conversion = ( temp * (9/5) )+ 32;
+            } else if (op === "f") {
+                conversion = (temp - 32) * (5/9);
+            }
+
+            return conversion;
+        }
+
+    </script>
+</body>
+</html>
