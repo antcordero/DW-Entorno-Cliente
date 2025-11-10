@@ -14,11 +14,11 @@
 
         function contarDigitos(num) {
             let cont = 0;
-            
+
             for (let i = 0; i<num; i++) {
                 if (num>=0) {
                     cont++;
-                    contarDigitos(num/10);
+                    num = Math.floor(contarDigitos(num/10));
                 }
             }
             return cont;
