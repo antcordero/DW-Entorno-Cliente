@@ -1,0 +1,6 @@
+10/11/25
+========
+
+Diferencia BOM - DOM -> JS accede y puede modificar ambos
+
+DOM es una parte del BOM 
