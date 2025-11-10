@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 5 - Buscar el número mayor</title>
+</head>
+<body>
+    <script>
+        let array1 = [2, 7, 3, 9, 65, 45, 32, 8, 1, 6];
+
+        document.write("El array original es: " + array1.join(", "));
+
+        document.write("El elemento más grande del array es: " + digitoMayor(array1));
+
+        function digitoMayor(arrayNum) {
+            let mayor = 0;
+            let contador = arrayNum.lenght;
+            while (contador>0) {
+                if (arrayNuevo[0] > mayor) {
+                    mayor = arrayNum
+                }
+                arrayNuevo = digitoMayor(arrayNum.shift());
+            }
+            return mayor;
+        }
+    </script>
+</body>
+</html>
