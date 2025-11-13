@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5</title>
+</head>
+<body>
+    <script>
+        class Etiqueta {
+            constructor(nombreArticulo, referencia) {
+                this.nombreArticulo = nombreArticulo;
+                this.referencia = referencia;
+            }
+
+            mostrarArticulo() {
+                console.log("Artículo: " + this.nombreArticulo + ", Referencia: " + this.referencia);
+            }
+
+            validarEtiqueta() {
+                let patron = /^\d{4}-[a-zA-Z]{5}\/\d{2}_\d$/;
+                return patron.test(this.referencia);
+            }
+        }
+
+        let miEtiqueta = new Etiqueta("Camiseta", "2022-xrFdS/25_9");
+        miEtiqueta.mostrarArticulo();
+        console.log("¿Etiqueta válida?: " + miEtiqueta.validarEtiqueta());
+    
+    </script>
+</body>
+</html>

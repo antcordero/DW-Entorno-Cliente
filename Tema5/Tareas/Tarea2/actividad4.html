@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 4</title>
+</head>
+<body>
+    <script>
+        class Trigonometria {
+            constructor() {
+                
+            }
+
+            calcularSeno(grados) {
+                let radianes = grados * (Math.PI / 180);
+                return Math.sin(radianes);
+            }
+
+            calcularCoseno(grados) {
+                let radianes = grados * (Math.PI / 180);
+                return Math.cos(radianes);
+            }
+
+            calcularTangente(grados) {
+                let radianes = grados * (Math.PI / 180);
+                return Math.tan(radianes);
+            }
+
+            calcularArcoseno(valor) {
+                let radianes = Math.acos(valor);
+                return radianes * (180 / Math.PI);
+            }
+
+            calcularArcocoseno(valor) {
+                let radianes = Math.asin(valor);
+                return radianes * (180 / Math.PI);
+            }
+
+            calcularArcotangente(valor) {
+                let radianes = Math.atan(valor);
+                return radianes * (180 / Math.PI);
+            }
+        }
+
+
+        document.write("<h2>TRIGONOMETRÍA</h2>");
+        
+        let trigonometria = new Trigonometria();
+        document.write("Seno de PI/4: " + trigonometria.calcularSeno(45) + "<br>");
+        document.write("Coseno de PI/4: " + trigonometria.calcularCoseno(45) + "<br>");
+        document.write("Tangente de PI/4: " + trigonometria.calcularTangente(45) + "<br>");
+        document.write("Arcoseno de 1/2: " + trigonometria.calcularArcoseno(0.5) + "<br>");
+        document.write("Arcocoseno de 1/2: " + trigonometria.calcularArcocoseno(0.5) + "<br>");
+        document.write("Arcotangente de 1/2: " + trigonometria.calcularArcotangente(0.5) + "<br>");
+    </script>
+</body>
+</html>
