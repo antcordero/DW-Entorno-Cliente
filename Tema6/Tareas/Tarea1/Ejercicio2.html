@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <button id="aleatorio">Redireccionar</button>
+    <script>
+        let botonAleatorio = document.querySelector("#aleatorio");
+        let numeroAleatorio = Math.floor(Math.random() * 2) + 1;
+
+        botonAleatorio.addEventListener("click", funcionBotonAleatorio());
+
+        function funcionBotonAleatorio() {
+            let numeroAleatorio = Math.floor(Math.random()*2)+1; 
+            let destinoTexto;
+            let destinoURL;
+
+            if (numeroAleatorio === 0) {
+                destinoTexto = "Outlook";
+                destinoURL = "https://outlook.live.com/mail/0/";
+            } else if (numeroAleatorio === 1) {
+                destinoTexto = "Gmail";
+                destinoURL = "https://mail.google.com/";
+            } else {
+                destinoTexto = "Yahoo";
+                destinoURL = "https://mail.yahoo.com/";
+            }
+            alert("Se ha obtenido el valor: " + numeroAleatorio + ". Se abre: " + destinoTexto);
+
+            window.open(destinoURL);
+        }
+    </script>
+</body>
+</html>

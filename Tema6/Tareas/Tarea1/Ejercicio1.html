@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+
+    <button id="boton1">Abrir ventana 1</button>
+    <button id="boton2">Abrir ventana 2</button>
+
+    <script>
+        //al recargar la pagina mostrar un alert si tiene las cookies habilitadas o no
+        function alertCookies() {
+            if (navigator.cookieEnabled) {
+                alert("Las cookies están habilitadas.");
+            } else {
+                alert("Las cookies están deshabilitadas.");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", alertCookies);
+
+        //botones
+        document.querySelector("#boton1").addEventListener("click", funcionBoton1);
+        document.querySelector("#boton2").addEventListener("click", funcionBoton2);
+
+        function funcionBoton1() {
+            window.open("https://www.google.com/?hl=es", "ventana1", "width=600,height=300");
+        }
+
+        //ventana del ancho del monitor y mitad de alto
+        function funcionBoton2() {
+            window.open("https://github.com/", "ventana2", `width=${screen.width},height=${screen.height / 2}`);
+        }
+    </script>
+</body>
+</html>
