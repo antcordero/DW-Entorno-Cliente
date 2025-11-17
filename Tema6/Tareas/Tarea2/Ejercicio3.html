@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 - Tarea 2</title>
+</head>
+<body>
+    <button id="aceptar">Aceptar</button>
+    <button id="cancelar">Cancelar</button>
+    <script>
+        let botonAceptar = document.getElementById("aceptar");
+        let botonCancelar = document.getElementById("cancelar");
+        
+        //recordatorio cada 5 segundos
+        function recordatorio() {
+            alert("Han pasado 5 segundos");
+        }
+
+        //pulsar botones para aceptar o cancelar recordatorio
+        if (botonAceptar) {
+            botonAceptar.addEventListener("click", function() {
+                alert("Has pulsado Aceptar");
+                setInterval(recordatorio, 5000);
+            });
+        } else if (botonCancelar) {
+            botonCancelar.addEventListener("click", function() {
+                alert("Has pulsado Cancelar");
+                clearInterval(recordatorio);
+            });
+        }
+        
+    </script>
+</body>
+</html>
