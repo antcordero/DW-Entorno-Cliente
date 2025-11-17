@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 8</title>
+    <style>
+        .enlace{
+            color: red;
+            font-weight: bold;
+        }
+        .nuevoEn1ace{
+            color: green;
+            font-weight: bold;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="enlace">Enlace 1</a>
+        <a href="#">Enlace 2</a>
+        <a href="#" class="enlace">Enlace 3</a>
+        <a href="#">Enlace 4</a>
+    </nav>
+
+    <script>
+        let enlaces = document.getElementsByTagName("a");
+
+            for (enlace of enlaces) {
+                if (enlace.hasAttribute( "class" )) {
+                    enlace. setAttribute( " class" , "nuevoEn1ace" ) ;
+                } else{enlace. setAttribute( "class " , "enlace" ) ; }
+            }
+            
+    </script>
+</body>
+</html>
