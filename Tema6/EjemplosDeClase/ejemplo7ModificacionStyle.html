@@ -4,8 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <style>
+        #div1 {
+            width: 50%;
+            height: 100px;
+            border: 1px solid #FF0000;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="div1">
+        <p>Prueba 1</p>
+    </div>
+
+    <div id="div2">
+        <p>Prueba 2</p>
+    </div>
+        
+    <script>
+        let div = document.getElementById("div1");
+        let div2 = document.getElementById("div2");
+
+        div2.style.width = "30%";
+        div2.style.height = "250px";
+        div2.style.border = "5px dashed #00FF00";
+        div2.style.paddingLeft = "15px";
+        div2.style.margin = "25px";
+    </script>
 </body>
 </html>
