@@ -32,7 +32,7 @@
 
         objetoJSON.nombre = nuevoNombre;
         objetoJSON.edad = nuevaEdad;
-        objetoJSON.activo = (nuevoActivo.toLowerCase() === "true");
+        objetoJSON.activo = nuevoActivo.toLowerCase();
 
         document.write("<br>DATOS MODIFICADOS: <br>");
         document.write("Nombre: " + objetoJSON.nombre + "<br>");
