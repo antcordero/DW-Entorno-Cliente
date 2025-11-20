@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Repaso Tema 5</title>
+</head>
+<body>
+    <script>
+        const texto = {
+            "nombre": "Lucia",
+            "edad": 28,
+            "activo": true
+        }
+
+        //Convertir el string a un objeto JSON
+        const objetoJSON = JSON.parse(texto);
+
+        //Mostrar el objeto JSON en consola
+        document.write("DATOS BUSCADOS: <br>");
+        document.write("Nombre: " + texto.nombre + "<br>");
+        document.write("Edad: " + texto.edad + "<br>");
+        document.write("Activo: " + texto.activo + "<br>");
+
+    </script>
+</body>
+</html>
