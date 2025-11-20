@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 - Repaso</title>
+</head>
+<body>
+    <script>
+        //String en formato JSON con una lista de productos
+        const datos = `[
+            {
+                "producto": "Libro",
+                "precio": 15,
+            },
+            {
+                "producto": "Lapiz",
+                "precio": 2,
+            }
+        ]`;
+
+        //imprimir el nombre y precio de cada producto
+        const objProductos = JSON.parse(datos);
+        document.write("LISTA DE PRODUCTOS: <br>");
+        objProductos.forEach(item => {
+            document.write("Producto: " + item.producto + " - Precio: " + item.precio + "<br>");
+        });
+        
+    </script>
+</body>
+</html>
