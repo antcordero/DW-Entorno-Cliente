@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 - Repaso</title>
+</head>
+<body>
+    <script>
+        class CuentaBancaria {
+            constructor(titular, saldo) {
+                this.titular = titular;
+                this.saldo = saldo;
+            }
+
+            depositar(cantidad) {
+                this.saldo += cantidad;
+            }
+
+            retirar(cantidad) {
+                if (cantidad <= this.saldo) {
+                    this.saldo -= cantidad;
+                } else {
+                    alert("Fondos insuficientes");
+                }
+            }
+        }
+
+        //1-Preguntar cuantas cuentas quiere crear
+        let numCuentas = parseInt(prompt("¿Cuántas cuentas bancarias desea crear?"));
+
+        //2-Crear las cuentas pidiendo los datos al usuario
+        let cuentas = [];
+        for (let i = 0; i < numCuentas; i++) {
+            let titular = prompt("Ingrese el nombre del titular de la cuenta " + (i + 1) + ":");
+            let saldo = parseFloat(prompt("Ingrese el saldo inicial de la cuenta " + (i + 1) + ":"));
+            let cuenta = new CuentaBancaria(titular, saldo);
+            cuentas.push(cuenta);
+        }
+
+        //3-Preguntar para cada cuenta si quiere depositar o retirar dinero
+        cuentas.forEach(cuenta => {
+            let accion = prompt("Cuenta de " + cuenta.titular + " con saldo " + cuenta.saldo + ". ¿Desea depositar o retirar dinero? (d/r)");
+            let cantidad = parseFloat(prompt("Ingrese la cantidad:"));
+            if (accion.toLowerCase() === "d") {
+                cuenta.depositar(cantidad);
+            } else if (accion.toLowerCase() === "r") {
+                cuenta.retirar(cantidad);
+            } else {
+                alert("Acción no válida");
+            }
+            document.write("Cuenta de " + cuenta.titular + " - Saldo final: " + cuenta.saldo + "<br>");
+        })
+
+        //4-Mostrar el saldo final de cada cuenta
+        document.write("<h2>Resumen de cuentas:</h2>");
+        cuentas.forEach(cuenta => {
+            document.write("Cuenta de " + cuenta.titular + " - Saldo final: " + cuenta.saldo + "<br>");
+        });
+
+    </script>
+</body>
+</html>
