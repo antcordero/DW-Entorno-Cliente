@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 Repaso - Tema 5</title>
+</head>
+<body>
+    <script>
+        const texto = {
+            "nombre": "Lucia",
+            "edad": 28,
+            "activo": true
+        }
+
+        //Convertir el string a un objeto JSON
+        const objetoJSON = JSON.parse(texto);
+
+        //Mostrar el objeto JSON en consola
+        document.write("DATOS INICIALES: <br>");
+        document.write("Nombre: " + objetoJSON.nombre + "<br>");
+        document.write("Edad: " + objetoJSON.edad + "<br>");
+        document.write("Activo: " + objetoJSON.activo + "<br>");
+
+        /*Modificar los datos del objeto JSON pidiendo
+        * al usuario que ingrese los nuevos datos por prompt 
+        */
+
+        let nuevoNombre = prompt("Ingrese el nuevo nombre:");
+        let nuevaEdad = parseInt(prompt("Ingrese la nueva edad:"));
+        let nuevoActivo = prompt("¿Está activo? (true/false):");
+
+        objetoJSON.nombre = nuevoNombre;
+        objetoJSON.edad = nuevaEdad;
+        objetoJSON.activo = (nuevoActivo.toLowerCase() === "true");
+
+        document.write("<br>DATOS MODIFICADOS: <br>");
+        document.write("Nombre: " + objetoJSON.nombre + "<br>");
+        document.write("Edad: " + objetoJSON.edad + "<br>");
+        document.write("Activo: " + objetoJSON.activo + "<br>");
+    </script>
+</body>
+</html>
