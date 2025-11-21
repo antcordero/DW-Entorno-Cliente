@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6 - Tipo Examen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #formulario {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        #formulario input {
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        #botones {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+
+            button {
+            margin-right: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+            background-color: lightblue;
+            }
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            min-height: 50px;
+            background-color: rgb(175, 175, 175);
+        }
+        
+
+    </style>
+</head>
+<body>
+
+    <h1>Inventario Dinámico</h1>
+    <div id="formulario">
+        <form action="">
+            <input type="text" id="nombre" placeholder="Nombre del Producto" required>
+            <input type="number" id="precio" placeholder="Precio" required>
+        </form>
+    </div>
+
+    <div id="botones">
+        <button id="agregar" type="submit">Agregar Producto</button>
+        <button id="mostrar" type="submit">Mostrar Inventario</button>
+        <button id="eliminar" type="submit">Eliminar Productos</button>
+        <button id="calcular" type="submit">Calcular Total</button>
+    </div>
+    
+    <div id="resultado">
+        
+    </div>
+
+    <script>
+        //inventario como array de objetos {nombre, precio}
+        let inventario = [];
+        let resultadoDiv = document.getElementById('resultado');
+        //coger los elementos del DOM
+        let nombreInput = document.getElementById('nombre');
+        let precioInput = document.getElementById('precio');
+        //botones
+        let agregarBtn = document.getElementById('agregar');
+        let mostrarBtn = document.getElementById('mostrar');
+        let eliminarBtn = document.getElementById('eliminar');
+        let calcularBtn = document.getElementById('calcular');
+
+        //funciones
+
+        /*
+         *  Agregar Producto
+        */
+        function agregarProcducto() {
+            let nombre = nombreInput.value;
+            let precio = parseFloat(precioInput.value);
+            
+            if (nombre && !isNaN(precio)) {
+                inventario.push({nombre: nombreP, precio: precioP});
+                resultadoDiv.innerHTML = {nombreP} + ": " + {precioP} + "€";
+                nombreInput.value = "";
+                precioInput.value = "";
+            }
+        }
+
+        /*
+         *  Mostrar Inventario
+        */
+        function mostrarInventario() {
+            if (inventario-length == 0) {
+                resultadoDiv.innerHTML = "El inventario está vacío.";
+                return;
+            } else {
+                let contenido = "<ul>";
+                inventario.forEach(item => {
+                    contenido += "<li>" + item.nombre + " - " + item.precio + "€</li>";
+                });
+                contenido += "</ul>";
+            }
+        }
+
+        /*
+         *  Eliminar el último producto agregado
+        */
+        function eliminarProductos() {
+            if (inventario.leght == 0) {
+                resultadoDiv.innerHTML = "El inventario está vacío. No hay productos para eliminar.";
+                return;
+            } else {
+                let eliminado = inventario.pop();
+            }
+        }
+
+        /*
+         *  Calcular Total
+        */
+        function calcularTotal() {
+            if (inventario.length == 0) {
+                resultadoDiv.innerHTML = "El inventario está vacío.";
+                return;
+            } else {
+                let total = inventario.reduce((suma, item) => suma + item.precio, 0);
+                resultadoDiv.innerHTML = "Total del inventario: " + total + "€";
+            }
+        }
+
+        //eventos
+        agregarBtn.addEventListener('click', agregarProcducto);
+        mostrarBtn.addEventListener('click', mostrarInventario);
+        eliminarBtn.addEventListener('click', eliminarProductos);
+        calcularBtn.addEventListener('click', calcularTotal);
+
+        
+    </script>
+</body>
+</html>
