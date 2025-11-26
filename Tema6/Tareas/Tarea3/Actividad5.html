@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5 - Tarea 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        ul {
+            list-style-type: decimal;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Pulsa el botón para <button onclick="añadirElemento()">añadir</button> o <button onclick="eliminarElemento()">eliminar</button> un elemento a la lista.</h2>
+
+    <ul id="listaElementos">
+        <li>Primer dato</li>
+        <li>Segundo dato</li>
+        <li>Tercer dato</li>
+        <li>Cuarto dato</li>
+    </ul>
+
+    <script>
+        function añadirElemento() {
+            let texto = prompt("Introduce el texto del nuevo elemento:");
+
+            //validar que no esté vacío
+            while (texto === null || texto === "") {
+                texto = prompt("El campo no puede estar vacío. Introduce el texto del nuevo elemento:");
+            }
+
+            const nuevoElemento = document.createElement("li");
+            nuevoElemento.textContent = texto;
+
+            //añadir a la lista
+            document.getElementById("listaElementos").appendChild(nuevoElemento);
+        }
+
+        function eliminarElemento() {
+            const lista = document.getElementById("listaElementos");
+            const elementos = lista.getElementsByTagName("li");
+
+            if (elementos.length === 0) {
+                alert("No hay más elementos para eliminar.");
+            } else {
+                lista.removeChild(elementos[elementos.length - 1]);
+            }
+        }
+    </script>
+
+</body>
+</html>
