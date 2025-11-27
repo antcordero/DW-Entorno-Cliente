@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Repaso Tipo Examen</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        table {
+            border: 1px solid black;
+            td {
+                border: 1px solid black;
+            }
+        }
+        table th {
+            background-color: lightblue;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Información del Navegador</h1>
+    <!--Tabla dinámica-->
+    <table>
+        <tr>
+            <th>Propiedad</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td>Nombre del navegador</td>
+            <td id="nombreNavegador"></td>
+        </tr>
+        <tr>
+            <td>Versión</td>
+            <td id="version"></td>
+        </tr>
+        <tr>
+            <td>Idioma</td>
+            <td id="idioma"></td>
+        </tr>
+        <tr>
+            <td>Plataforma</td>
+            <td id="plataforma"></td>
+        </tr>
+        <tr>
+            <td>User-Agent</td>
+            <td id="user"></td>
+        </tr>
+    </table>
+
+    <script>
+        let nombreNav = document.getElementById("nombreNavegador");
+        let version = document.getElementById("version");
+        let idioma = document.getElementById("idioma");
+        let plataforma = document.getElementById("plataforma");
+        let user = document.getElementById("user");
+
+
+        //nombre del navegador
+        function mostrarNombreNavegador() {
+            nombreNav.innerHTML = navigator.appName;
+        }
+
+        //version del navegador
+        function mostrarVersion() {
+            version.innerHTML = navigator.appVersion;
+        }
+
+        //idioma del navegador
+        function mostrarIdioma() {
+            idioma.innerHTML = navigator.language;
+        }
+
+        //plataforma del navegador
+        function mostrarPlataforma() {
+            plataforma.innerHTML = navigator.platform;
+        }
+
+        //usuario 
+        function mostrasInfoUser() {
+            user.innerHTML = navigator.userAgent;
+        }
+
+        mostrarNombreNavegador();
+        mostrarVersion();
+        mostrarIdioma();
+        mostrarPlataforma();
+        mostrasInfoUser();
+    </script>
+</body>
+
+</html>
