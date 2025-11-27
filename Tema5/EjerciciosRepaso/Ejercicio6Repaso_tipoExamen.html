@@ -57,10 +57,10 @@
     </div>
 
     <div id="botones">
-        <button id="agregar" type="submit">Agregar Producto</button>
-        <button id="mostrar" type="submit">Mostrar Inventario</button>
-        <button id="eliminar" type="submit">Eliminar Productos</button>
-        <button id="calcular" type="submit">Calcular Total</button>
+        <button id="agregar" type="button">Agregar Producto</button>
+        <button id="mostrar" type="button">Mostrar Inventario</button>
+        <button id="eliminar" type="button">Eliminar Productos</button>
+        <button id="calcular" type="button">Calcular Total</button>
     </div>
     
     <div id="resultado">
@@ -71,9 +71,11 @@
         //inventario como array de objetos {nombre, precio}
         let inventario = [];
         let resultadoDiv = document.getElementById('resultado');
+
         //coger los elementos del DOM
         let nombreInput = document.getElementById('nombre');
         let precioInput = document.getElementById('precio');
+
         //botones
         let agregarBtn = document.getElementById('agregar');
         let mostrarBtn = document.getElementById('mostrar');
@@ -90,8 +92,8 @@
             let precio = parseFloat(precioInput.value);
             
             if (nombre && !isNaN(precio)) {
-                inventario.push({nombre: nombreP, precio: precioP});
-                resultadoDiv.innerHTML = {nombreP} + ": " + {precioP} + "€";
+                inventario.push({nombre: nombre, precio: precio});
+                resultadoDiv.innerHTML = {nombre} + ": " + {precio} + "€";
                 nombreInput.value = "";
                 precioInput.value = "";
             }
@@ -110,6 +112,7 @@
                     contenido += "<li>" + item.nombre + " - " + item.precio + "€</li>";
                 });
                 contenido += "</ul>";
+                resultadoDiv.innerHTML = contenido;
             }
         }
 
@@ -117,11 +120,12 @@
          *  Eliminar el último producto agregado
         */
         function eliminarProductos() {
-            if (inventario.leght == 0) {
+            if (inventario.lenght == 0) {
                 resultadoDiv.innerHTML = "El inventario está vacío. No hay productos para eliminar.";
                 return;
             } else {
                 let eliminado = inventario.pop();
+                resultadoDiv.innerHTML = "Producto eliminado: " + eliminado.nombre;
             }
         }
 
