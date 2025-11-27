@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 6 - Cookies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        .mensaje {
+            color: green;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Crear Cookie</h2>
+    
+    <button onclick="crearCookie()">Crear Nueva Cookie</button>
+    <button onclick="mostrarCookies()">Mostrar Cookies en Consola</button>
+    
+    <div id="mensaje"></div>
+
+    <script>
+        function crearCookie() {
+            //pedir nombre y minutos
+            const nombre = prompt("Introduce el nombre para la cookie:");
+            if (nombre === null || nombre === "") {
+                alert("El nombre no puede estar vacío.");
+                return;
+            }
+
+            const minutos = prompt("Introduce los minutos de duración de la cookie:");
+            if (minutos === null || minutos === "" || isNaN(minutos) || parseInt(minutos) <= 0) {
+                alert("Debes introducir un número válido de minutos.");
+                return;
+            }
+
+            //calcular max-age en segundos
+            const segundos = parseInt(minutos) * 60;
+            
+            //crear la cookie (usando encodeURIComponent para evitar problemas con caracteres especiales)
+            document.cookie = `${encodeURIComponent(nombre)}=${encodeURIComponent("valor_guardado")}; max-age=${segones}; path=/`;
+            
+            //mostrar mensaje
+            document.getElementById("mensaje").innerHTML = 
+                `<p class="mensaje">✅ Cookie "${nombre}" creada correctamente. Duración: ${minutos} minutos.</p>`;
+            
+            //mostrar en consola automáticamente
+            console.log("--- Cookies actuales ---");
+            console.log(document.cookie);
+        }
+
+        function mostrarCookies() {
+            console.log("--- Cookies en el navegador ---");
+            console.log(document.cookie);
+            
+            if (!document.cookie) {
+                console.log("No hay cookies almacenadas.");
+            }
+        }
+        
+        // Mostrar cookies al cargar la página
+        window.onload = function() {
+            console.log("Cookies al cargar la página:");
+            console.log(document.cookie);
+        }
+    </script>
+
+</body>
+</html>
