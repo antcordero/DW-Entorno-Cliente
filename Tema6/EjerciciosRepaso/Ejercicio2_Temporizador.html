@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Temporizador</title>
+    <style>
+        #temporizador {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        #mensaje {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="temporizador">
+        <h1>Temporizador: </h1>
+        <h1 id="tiempo"></h1>
+    </div>
+
+    <div id="botones">
+        <button id="pausa">Pausar</button>
+        <button id="reanudar">Reanudar</button> 
+        <button id="resetear">Resetear</button>
+    </div>
+
+    <div id="mensaje">
+        
+    </div>
+
+    <script>
+        let tiempo = document.getElementById("tiempo");
+        let resultado = document.getElementById("mensaje");
+        let btn_pausa = document.getElementById("pausa");
+        let btn_reanudar = document.getElementById("reanudar");
+        let btn_resetear = document.getElementById("resetear");
+
+        //Preguntar tiempo
+        let segundos = parseInt(prompt("Tiempo del temporizador: "));
+
+        
+
+    </script>
+</body>
+</html>
