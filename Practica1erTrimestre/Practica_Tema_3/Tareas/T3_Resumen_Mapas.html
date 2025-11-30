@@ -7,7 +7,59 @@
 </head>
 <body>
     <script>
-        
+        //1 - crear mapa
+        let inventario = new Map();
+
+        //2 - añadir 3 productos -> set
+        inventario.set("Manzanas", {cantidad: 10, precio: 2});
+        inventario.set("Naranjas", {cantidad: 5, precio: 3});
+        inventario.set("Platanos", {cantidad: 8, precio: 1.5});
+
+        document.write("Inventario inicial: <br>");
+        inventario.forEach((info, producto) => {
+            document.write("Producto: " + producto + ", Cantidad: " + info.cantidad + ", Precio: " + info.precio + "<br>");
+        });
+
+        //3 - Incrementar la canitidad de manzanas en 5 unidades
+        //inventario.set("Manzanas", {cantidad: 10, precio: 3});
+
+        let manzanas = inventario.get("Manzanas");
+        manzanas.cantidad + 5;
+        inventario.set("Manzanas", manzanas);
+
+        document.write("<br>Inventario modificado: <br>");
+        inventario.forEach((info, producto) => {
+            document.write("Producto: " + producto + ", Cantidad: " + info.cantidad + ", Precio: " + info.precio + "<br>");
+        });
+
+        //4 - Comprobar si pera está en el inventario
+        document.write("<br>Hay peras en el inventario?: ")
+        document.write(inventario.has("Pera") ? "Sí":"No");
+
+        //5 - Obtener el precio de las naranjas
+        let precioNaranjas = inventario.get("Naranjas").precio;
+        document.write("<br><br>El precio de las naranjas es: " + precioNaranjas + "€");
+
+        //6 - Eliminar plátanos del inventario
+        inventario.delete("Platanos");
+        document.write("<br><br>Inventario tras borrar: <br>");
+        inventario.forEach((info, producto) => {
+            document.write("Producto: " + producto + ", Cantidad: " + info.cantidad + ", Precio: " + info.precio + "<br>");
+        });
+
+        //7 - iterar y mostrar cada producto con su información
+        document.write("<br><br>Iteración con for...of: <br>");
+        for (let [producto, info] of inventario) {
+            document.write("Producto: " + producto + ", Cantidad: " + info.cantidad + ", Precio: " + info.precio + "<br>");
+        }
+
+        //8 - copiar inventario a otro mapa
+        const copiaInventario = new Map([...inventario]);
+
+        //9 - limpiar inventario inicial
+        inventario.clear();
+        (inventario.size === 0) ? document.write("<br>El inventario está vacío") : document.write("<br>El inventario no está vacío");
+
     </script>
 </body>
 </html>
