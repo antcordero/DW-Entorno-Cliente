@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 4 - Tarea 4 - RECURSIVIDAD - Palabras Palídromas</title>
+</head>
+<body>
+    <script>
+        let palabra = prompt("Introduce una palabra:");
+        let palabraReves = "";
+        
+        for (let i = palabra.length - 1; i >= 0; i--) {
+            palabraReves += palabra[i];
+        }
+
+        if (palabra[0] !== palabraReves[0]) {
+            document.write("Las palabras no son palíndromas.<br>->" + palabra + " y " + palabraReves);
+        } else {
+            document.write("¿Es palindroma? " + esPalindroma(palabra))
+        }
+
+        function esPalindroma(palabra) {
+            //caso base
+            if (palabra.length <= 1) {
+                return true;
+            }
+            
+            //caso recursivo: llamo con la palabra sin primera ni última letra
+            let centro = palabra.slice(1, palabra.length - 1);
+            return esPalindroma(centro);
+
+            //si primera y última son distintas, no es palíndroma
+            if (palabra[0] !== palabra[palabra.length - 1]) {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

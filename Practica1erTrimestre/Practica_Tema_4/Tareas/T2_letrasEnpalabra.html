@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tema 4 - Tarea 2 - Letras en una palabra</title>
 </head>
 <body>
-    
+    <script>
+        function adivinarPalabra(palabra, ...letras) {
+            let resultado = "";
+            for (let i = 0; i<palabra.length; i++){
+                let letraActual = palabra[i];
+                if (letras.includes(letraActual)) {
+                    resultado = resultado + letraActual;
+                } else {
+                    resultado = resultado + "-"
+                }
+            }
+            document.write(resultado);
+            document.write(" -> La palabra era: " + palabra);
+        }
+
+        adivinarPalabra("sargento", "a", "e", "i", "o", "u", "d", "n");
+    </script>
 </body>
 </html>
