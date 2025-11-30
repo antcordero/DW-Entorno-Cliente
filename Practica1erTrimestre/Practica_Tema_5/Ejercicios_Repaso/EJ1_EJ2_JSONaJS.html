@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 5 - Repaso - Ejercicio 1 JSON a JS</title>
+</head>
+<body>
+    <script>
+        const texto = `{
+            "nombre":"Lucía",
+            "edad":25,
+            "activo":true
+        }`;
+
+        //de JSON a objetos JS
+        const persona = JSON.parse(texto);
+
+        document.write("DATOS BUSCADOS<br>");
+        document.write("Nombre: " + persona.nombre + "<br>Edad: " + persona.edad + "<br>¿Activa?: " + persona.activo);
+
+        //Modificar los datos iniciales pidiendo valores
+        let nuevoNombre = prompt("Nuevo nombre?: ")
+        persona.nombre = nuevoNombre; 
+
+
+        document.write("<br>DATOS MODIFICADOS<br>");
+        document.write("Nombre: " + persona.nombre + "<br>Edad: " + persona.edad + "<br>¿Activa?: " + persona.activo);
+
+    </script>
+</body>
+</html>

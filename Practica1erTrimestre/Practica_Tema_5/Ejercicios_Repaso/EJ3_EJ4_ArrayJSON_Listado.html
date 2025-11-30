@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 5 - Repaso - Ejercicio 3 Array JSON Listado</title>
+</head>
+<body>
+    <script>
+        const datos = `[
+            {
+                "producto": "Libro",
+                "precio": 15
+            },
+            {
+                "producto": "Disco",
+                "precio": 20
+            },
+            {
+                "producto": "Pelicula",
+                "precio": 25
+            }
+        ]`;
+
+
+        //de JSON a objeto JS
+        const productos = JSON.parse(datos);
+
+        document.write("LISTADO DE PRODUCTOS");
+        for (let p of productos) {
+            document.write("Producto: " + p.producto + " - Precio: " + p.precio + "<br>");
+        }
+
+        //Meter 5 productos nuevos pidiendo datos
+        for (let i = 0; i < 5; i++) {
+            let prod = prompt("Nombre del producto:");
+            let prec = parseFloat(prompt("Precio del producto:"));
+            let nuevoProducto = {
+                "producto": prod,
+                "precio": prec
+            };
+            productos.push(nuevoProducto);
+        }
+
+        //Mostrar listado actualizado
+        document.write("<br>LISTADO ACTUALIZADO DE PRODUCTOS<br>");
+        for (let p of productos) {
+            document.write("Producto: " + p.producto + " - Precio: " + p.precio + "<br>");
+        }
+
+    </script>
+</body>
+</html>

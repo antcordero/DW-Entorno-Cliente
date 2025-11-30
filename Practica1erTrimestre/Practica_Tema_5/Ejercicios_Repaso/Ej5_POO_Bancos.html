@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 5 - Repaso - POO Cuentas Bancarias</title>
+</head>
+<body>
+    <script>
+        class CuentaBancaria {
+            constructor(tit, sal){
+                this.titular = tit;
+                this.saldo = sal;
+            }
+
+            //métodos
+
+            depositar(cantidad) {
+                this.saldo = this.saldo + cantidad;
+                document.write("Saldo actual: " + this.saldo);
+            }
+
+            retirar(cantidad) {
+                if (this.saldo <= 0){
+                    document.write("Saldo insuficiente");
+                } else {
+                    this.saldo = this.saldo - cantidad;
+                    document.write("Saldo actual: " + this.saldo);
+                }
+            }
+        }
+
+        //preguntar cuántas cuentas quiere crear
+        let banco = [];
+        let cantidadCuentas = parseInt(prompt("¿Cuántas cuentas quieres crear?"));
+        
+        for (let i = 0; i < cantidadCuentas; i++) {
+            document.write("<br><br>Gestión de la cuenta " + (i + 1) + "<br>");
+            let titular = prompt("Introduce el nombre del titular de la cuenta " + (i + 1));
+            let saldo = parseFloat(prompt("Introduce el saldo inicial de la cuenta " + (i + 1)));
+            banco.push(new CuentaBancaria(titular, saldo));
+
+            //preguntar si quiere depositar (d) o retirar (r)
+            let accion = prompt("¿Quieres depositar (d) o retirar (r) dinero en la cuenta de " + titular + "?");
+            let cantidad = parseFloat(prompt("¿Cuánto dinero quieres " + (accion === 'd' ? 'depositar' : 'retirar') + "?"));
+            if (accion === 'd') {
+                document.write("Depósito de " + cantidad + ". " + banco[i].depositar(cantidad));
+            } else if (accion === 'r') {
+                document.write("Retiro de " + cantidad + ". "+ banco[i].retirar(cantidad));
+            }
+
+            document.write("<br><br>");
+
+
+        }
+
+    </script>
+</body>
+</html>
