@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 4 - RECURSIVIDAD - Contar dígitos de un número</title>
+</head>
+<body>
+    <script>
+        let num = 0;
+        do {
+            num = parseInt(prompt("De un número para contar sus dígitos: "));
+        } while (isNaN(num));
+
+        document.write("El número " + num + " tiene " + contarDigitos(num) + " digitos.");
+
+        function contarDigitos(num) {
+            //hacer positivo el número
+            if (num<0) {
+                num = num * (-1);
+            }
+
+            if (num < 10) {
+                return 1; //caso base si es menor de 10 va a tener siempre un dígito
+            } else {
+                return 1 + contarDigitos(Math.floor(num / 10)); //cuenta uno y vuelve a pasar al número
+            }
+        }
+    </script>
+</body>
+</html>

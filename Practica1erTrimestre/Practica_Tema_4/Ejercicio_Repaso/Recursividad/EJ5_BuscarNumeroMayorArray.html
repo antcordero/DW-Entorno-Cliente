@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 4 - RECURSIVIDAD - Ejercicio 5 Buscar el número Mayor en un Array</title>
+</head>
+<body>
+    <script>
+        let vector = new Array(5);
+        let valor;
+
+        for (let i = 0; i<5; i++) {
+            do {
+                valor = parseInt(prompt("Cargar " + (i+1) + "º número: "));
+                if (!isNaN(valor)) {
+                    vector.push(valor);
+                }
+            } while (isNaN(valor));
+        }
+
+        document.write("El array original es: " + vector.join(", "));
+        document.write("El elemento más grnade del array es: " + encontrarNumero(vector));
+
+        function encontrarNumero(array) {
+            if (array.length === 1) {
+                return array[0]; //caso base
+            } else {
+                let maxDelResto = encontrarNumero(array.slice(1)); //llamada recursiva con el resto del array
+                return (array[0] > maxDelResto) ? array[0] : maxDelResto; //compara el primer elemento con el máximo del resto
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 4 - RECURSIVIDAD - Dar vuelta a una cadena String</title>
+</head>
+<body>
+    <script>
+        let cadena = prompt("introduce una cadena de texto: ");
+        document.write("Cadena original: " + cadena );
+        document.write("<br>Cadena invertida: " + darVueltaCadena(cadena));
+
+        function darVueltaCadena(cad) {
+            let invertida = "";
+            if (cad.length <= 0) {
+                invertida = "";
+            } else {
+                invertida = cad[cad.length-1] + darVueltaCadena(cad.slice(0, cad.length-1));
+            }
+            return invertida;
+        }
+
+    </script>
+</body>
+</html>

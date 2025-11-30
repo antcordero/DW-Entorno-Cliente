@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 4 - RECURSIVIDAD - Suma n primeros números naturales</title>
+</head>
+<body>
+    <script>
+        let num = 0;
+        do {
+            num = parseInt(prompt("Da un número: "));
+            if (num <= 0 || isNaN(num)) {
+                alert("De un dato correcto");
+            }
+        } while (num <= 0 || isNaN(num));
+
+        document.write("La suma de los " + num + " primeros números es " + sumaNumeros(num));
+
+        function sumaNumeros(n) {
+            let suma = 0;
+            if (n == 0) {
+                suma = 0;
+            } else {
+                suma = n + sumaNumeros(n-1);
+            }
+
+            return suma
+        }
+
+    </script>
+</body>
+</html>
