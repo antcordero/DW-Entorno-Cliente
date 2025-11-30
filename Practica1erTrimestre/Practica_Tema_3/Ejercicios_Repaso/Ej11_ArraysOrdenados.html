@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 3 - Ejercicios Repaso</title>
+</head>
+<body>
+    <script>
+        let sueldos = [];
+        let valor;
+
+        do {
+            valor = parseInt(prompt("Ingrese el sueldo (cero para finalizar): "));
+            if (valor != 0) {
+                sueldos.push(valor);
+            }
+        } while (valor!=0);
+
+        document.write("Listado de sueldos: <br>");
+        for (let i = 0; i<sueldos.length; i++) {
+            document.write("Dato["+i+"] = " + sueldos[i]+"<br>");
+        }
+
+        //ordendar sueldos
+        //de menor a mayor - Método burbuja
+        for (let i=0; i<sueldos.length-1; i++) {
+            for (let j=0; j<sueldos.length-1-i; j++) {
+                if (sueldos[j]>sueldos[j+1]) {
+                    let temp = sueldos[j+1];
+                    sueldos[j+1] = sueldos[j];
+                    sueldos[j] = temp;
+                }
+
+            }
+        }
+
+        document.write("<br>Sueldos de menor a mayor: " + sueldos.join(", "));
+
+        //de mayor a menor
+        let sueldosMayorMenor = sueldos.reverse();
+        document.write("<br>Sueldos de mayor a menor: " + sueldosMayorMenor.join(", "));
+    </script>
+</body>
+</html>

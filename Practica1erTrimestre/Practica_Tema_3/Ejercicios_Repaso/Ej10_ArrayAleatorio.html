@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 3 - Ejercicios Repaso Ej10</title>
+</head>
+<body>
+    <script>
+        let vector = [];
+
+        for (let i = 0; i<5; i++) {
+            vector.push(Math.floor(Math.random()*(1000-1)+1));
+        }
+
+        //imprimir
+        document.write("ELEMENTOS DEL VECTOR<br>");
+        for (let i = 0; i<vector.length; i++) {
+            document.write("Dato ["+i+"] = " + vector[i]+"<br>");
+        }
+
+        let extraidos = vector.splice(vector.length-2, 2);
+        let sumaDosUltimos = extraidos[0] + extraidos[1];
+        document.write("<br>La suma de los dos últimos componentes es: " + sumaDosUltimos);
+        document.write("<br>Tamaño final del vector: " + vector.length + "<br>Elementos restantes del vector: <br>");
+        for (let i = 0; i<vector.length; i++) {
+            document.write("Dato ["+i+"] = " + vector[i]+"<br>");
+        }
+
+    </script>
+</body>
+</html>

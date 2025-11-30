@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 3 - Ejercicios Repaso</title>
+</head>
+<body>
+    <script>
+        let vector = [12, 3, 45, 6, 78, 9, 15, 95];
+
+        //recorrer
+        document.write("Los componentes del array son: <br>");
+        for (let i = 0; i<vector.length; i++) {
+            document.write("Dato " + i + ": " + vector[i] + "<br>");
+        }
+
+        //suma total
+        let sumaTotal = 0;
+        for (let e of vector) {
+            sumaTotal = sumaTotal + e;
+        }
+
+        document.write("Suma total de los componentes del array: " + sumaTotal);
+
+        //mayores de 36
+        let suma36 = 0;
+        document.write("<br><br>Los componentes mayores de 36 son: <br>");
+        for (let i = 0; i<vector.length; i++) {
+            if (vector[i]>36){
+                suma36 = suma36 + vector[i];
+                document.write("Dato " + i + ": " + vector[i] + "<br>");
+            }
+        }
+
+        document.write("<br>Suma total de los componentes del array: " + suma36);
+
+    </script>
+</body>
+</html>

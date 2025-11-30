@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 3 - Resumen Arrays</title>
+</head>
+<body>
+    <script>
+        //1
+        let invitados = ["Ana", "Luis", "Maria"];
+        document.write("Lista inicial: " + invitados.join(", "));
+        
+        //2 - añade al final
+        invitados.push("Pedro");
+        document.write("<br>Nueva lista: " + invitados.join(", "));
+
+        //3 - añade al principio
+        invitados.unshift("Sofía");
+        document.write("<br>Nueva lista: "+ invitados.join(", "));
+
+        //4 - quita el primero
+        invitados.shift();
+        document.write("<br>Nueva lista tras quitar: "+ invitados.join(", "));
+
+        //5 - quita el último
+        invitados.pop();
+        document.write("<br>Nueva lista tras quitar: " + invitados.join(", "));
+
+        //6 - añadir 2 elementos en la posición 2
+        invitados.splice(2, 0, "Carlos", "Lucía");
+        document.write("<br>Nuevos invitados: " + invitados.join(", "))
+
+        //7 - unir listas
+        let nuevosInvitados = ["Miguel", "Laura", "Ana"];
+        let nuevaLista = invitados.concat(nuevosInvitados);
+        document.write("<br>Listas unidas: " + nuevaLista.join(", "))
+
+        //8 - copia entre las posiciones 1 y 3
+        let copia1y3 = nuevaLista.slice(1, 3);
+        document.write("<br>Copia entre 1 y 3: " + copia1y3.join(", "));
+
+        //9 - primera posicíon de Ana
+        document.write("<br>Primera posisción de Ana: " + nuevaLista.indexOf("Ana"));
+    
+        //10 - última posición de Ana
+        document.write("<br>Última posisción de Ana: " + nuevaLista.lastIndexOf("Ana"));
+
+        //11 - verificar si Laura está en la lista
+        if (nuevaLista.includes("Laura")) {
+            document.write("<br>Laura está en la lista");
+        } else {
+            document.write("<br>Laura no está en la lista");
+        }
+
+        //12 - convertir a cadena de texto separada por comas
+        let cadena = nuevaLista.join(", ");
+        document.write("<br>Array como cadena: " + cadena);
+        
+
+        //13 - Ordenar alfabeticamente
+        document.write("<br>Lista ordenada: " + nuevaLista.sort().join(", "));
+
+        //14 - reverse
+        document.write("<br>Reverse: " + nuevaLista.reverse().join(", "));
+
+    </script>
+</body>
+</html>

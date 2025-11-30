@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 3 - Tarea 1 - Ejercicio 2</title>
+</head>
+<body>
+    <script>
+        let vector = [];
+
+        //ingresar valores hasta 0
+        let valor;
+        do {
+            valor = parseInt(prompt("Valor para el array: "));
+            if (valor < 50) {
+                vector.unshift(valor);
+            } else {
+                vector.push(valor);
+            }
+        } while (valor!=0);
+
+        //mostrar valores
+        document.write("Valores introducidos: " + vector.join(", "));
+
+        //eliminar el 0 de array
+        vector.shift();
+        
+        //mostrar valores ordenados
+        for (let i = 0; i<vector.length-1; i++) {
+            for (let j=0; j<vector.length-1-i; j++){
+                if (vector[j]>vector[j+1]) {
+                    let temp = vector[j+1];
+                    vector[j+1] = vector[j];
+                    vector[j] = temp;
+                }
+            }
+        }
+        document.write("<br>Valores ordenados: " + vector.join(", "));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 3 - Ejercicio Repaso 6</title>
+</head>
+<body>
+    <script>
+        let numCuenta;
+        let nombre;
+        let saldo;
+        let estado;
+        let sumaAcreedores = 0;
+        let sumaDeudores = 0;
+
+        do {
+            numCuenta = prompt("Número de cuenta: (0 para teminar)");
+            if (numCuenta >= 0) {
+                nombre = prompt("Nombre del titular: ");
+                saldo = parseInt(prompt("Saldo de la cuenta: "));
+                if (saldo > 0 ){
+                    estado = "acreedor";
+                    sumaAcreedores = sumaAcreedores + saldo;
+                } else if (saldo < 0 ) {
+                    estado = "deudor";
+                    sumaDeudores = sumaDeudores + saldo;
+                } else {
+                    estado = "nulo";
+                }
+                document.write(nombre + " tiene un saldo " + estado + " de " + saldo + "<br>");
+            }
+        } while (numCuenta > 0);
+
+        document.write("-> Suma total de saldos acreedores: " + sumaAcreedores + "<br>");
+        document.write("-> Suma total de saldos deudores: " + sumaDeudores + "<br>");
+    </script>
+</body>
+</html>

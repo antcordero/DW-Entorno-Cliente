@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 3 - Tarea 2 - Ejercicio 1</title>
+</head>
+
+<body>
+    <script>
+        let miArray = [1, 2, 3, 4, 13, 4, 5, 2, 1, 6, 7, 5, 8, 9, 4];
+        let repetidos = [];
+
+        //comprobar si hay repetidos y añadirlos al array
+        for (let i = 0; i < miArray.length; i++) {
+            for (let j = i + 1; j < miArray.length; j++) {
+                //si encuentra que está repetido
+                if (miArray[i] === miArray[j]) {
+                    //comprobar que no está metido ya en el array de repetidos
+                    if (!repetidos.includes(miArray[i])) {
+                        repetidos.push(miArray[i]);
+                    }
+                }
+            }
+        }
+
+        /*
+        * con cojuntos
+        let vistos = new Set();
+        for (let i = 0; i < miArray.length; i++) {
+            if (vistos.has(miArray[i])) {
+            if (!repetidos.includes(miArray[i])) {
+                repetidos.push(miArray[i]);
+            }
+            } else {
+            vistos.add(miArray[i]);
+            }
+        }
+        */
+
+        document.write("El array original tiene los siguientes elementos:<br>" + miArray);
+
+        //mostrar cuántos valores hay repetidos
+        if (repetidos.length > 0) {
+            document.write("<br/><br/>Se encontraron " + repetidos.length + " elementos repetidos.<br/>");
+            document.write("Los elementos repetidos se encuentran en las posiciones:<br>");
+            for (let i = 0; i < miArray.length; i++) {
+                if (repetidos.includes(miArray[i])) {
+                    document.write("miarray[" + i + "]=" + miArray[i] + "<br>");
+                }
+            }
+        }
+        else {
+            document.write("No se encontraron elementos repetidos.");
+        }
+
+    </script>
+</body>
+
+</html>
