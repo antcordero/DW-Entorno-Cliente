@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 5 - Repaso - Inventario</title>
+    <style>
+        /* Estilos CSS para el inventario */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        input {
+            margin: 5px 0;
+            padding: 8px;
+            width: 200px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inventario Dinámico</h1>
+    <input type="text" id="nombreProducto" placeholder="Nombre del producto">
+    <input type="number" id="precioProducto" placeholder="Precio del producto">
+    <br>
+    <button onclick="agregarProducto()">Agregar Producto</button>
+    <button onclick="mostrarProductos()">Mostrar Inventario</button>
+    <button onclick="eliminarProducto()">Eliminar Producto</button>
+    <button onclick="calcularTotal()">Calcular Total</button>
+    <pre id="resultado"></pre>
+
+    <script>
+        //1. Crear el objeto invetario con prodcutos: un array vacío
+        let inventario = {
+            productos: []
+        };
+
+        //2. Función para agregar productos
+        function agregarProducto() {
+            let nombreInput = document.getElementById("nombreProducto").value;
+            let precioInput = parseFloat(document.getElementById("precioProducto").value);
+            inventario.productos.push({nombre: nombreInput, precio: precioInput});
+            //document.getElementById("resultado").textContent = "-> " + nombreInput + ": " + precioInput + "€";
+            mostrarProductos();
+        }
+        //Método mostrarProductos que liste todos los productos
+        function mostrarProductos() {
+            let resultado = "";
+            for (let producto of inventario.productos) {
+                resultado += "-> " + producto.nombre + ": " + producto.precio + "€\n";
+            }
+            document.getElementById("resultado").textContent = resultado;
+        }
+
+
+        //Método eliminarProducto que elimine un producto por su nombre
+        function eliminarProducto() {
+            let nombreInput = document.getElementById("nombreProducto").value;
+            inventario.productos = inventario.productos.filter(producto => producto.nombre !== nombreInput);
+            document.getElementById("resultado").textContent = "Producto " + nombreInput + " eliminado.";
+            //inventario.productos.pop({nombre: nombreInput, precio: precioInput});
+        }
+
+        //Método calcularTotal que calcule el precio total de todos los productos
+        function calcularTotal() {
+            let total = 0;
+            for (let producto of inventario.productos) {
+                total = total + producto.precio;
+        }
+            document.getElementById("resultado").textContent = "Precio total: " + total + "€";
+        }
+    </script>
+</body>
+</html>
