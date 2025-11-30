@@ -7,7 +7,46 @@
 </head>
 <body>
     <script>
-        
+        let invitados = ["Ana", "Luis", "María", "Ana", "Carlos", "Lucía", "Luis", "María", "Ana"];
+        document.write("Conjunto de invitados inicial: " + invitados.join(", "));
+
+        //1 - array con los nombre únicos
+        let invitadosConjunto = new Set();
+        for (let i=0; i<invitados.length;i++){
+            invitadosConjunto.add(invitados[i]);
+        }
+        const invitadosUnicosArray = [...invitadosConjunto];
+        document.write("<br>Conjunto de invitados únicos: " + invitadosUnicosArray.join(", "));
+
+        //2 - cuantas veces aparece cada nombre y guardarlo en un mapa
+        let mapaInvitados = new Map();
+        let cont = 0;
+
+        for (let i = 0; i<invitados.length; i++) {
+            cont = 0;
+            for (let j = 0; j<invitados.length; j++) {
+                if (invitados[i] === invitados[j]) {
+                    cont++;
+                }
+                
+            }
+            mapaInvitados.set(invitados[i], cont);
+        }
+
+        document.write("<br>Mapa de invitados y número de veces que aparecen: <br>");
+        for (let [nombre, cont] of mapaInvitados) {
+            document.write(nombre + ": " + cont + "<br>");
+        }
+
+        //4 - Conjunto de nombres repetidos
+        let repetidos = new Set();
+        for (let [nombre, cont] of mapaInvitados) {
+            if (cont > 1) {
+                repetidos.add(nombre);
+            }
+        }
+
+        document.write("<br>Conjunto de invitados repetidos: " + [...repetidos]);
     </script>
 </body>
 </html>
