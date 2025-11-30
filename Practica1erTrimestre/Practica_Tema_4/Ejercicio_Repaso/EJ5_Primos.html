@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 4 - Ejercicios Repaso - </title>
+</head>
+<body>
+    <script>
+
+        do {
+            let num1 = parseInt(prompt("Número 1: "));
+            let num2 = parseInt(prompt("Número 2: "));
+
+            if (num1 == num2) {
+                alert("Los dós números deben ser diferentes")
+            }
+        } while (num1 == num2);
+
+        document.write("Los números primos entre: " + num1 + " y " + num2 + " son: ");
+        for (let i = num1; i<num2; i++) {
+            if (esPrimo(i)) {
+                document.write(i);
+            }
+        }
+
+        function esPrimo(num) {
+            if (num<2) {
+                return false;
+            }
+
+            for (let i = 2; i<=Math.sqrt(num); i++) {
+                if (num%i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 4 - Repaso - Ejercicio 7 - Ordenar Array con Función Flecha</title>
+</head>
+<body>
+    <script>
+        function ascendente(vector) {
+            const ascendente = [...vector].sort((a, b) => a - b);
+            document.write("Array ordenado de forma ascendente: " + ascendente.join(", ") + "<br>");
+        }
+
+        function descendente(vector) {
+            const descendente = [...vector].sort((a, b) => b - a);
+            document.write("Array ordenado de forma descendente: " + descendente.join(", ") + "<br>");
+        }
+
+        let vector = new Array(10);
+        for (let i=0; i<vector.length; i++) {
+            let valor = prompt("Introduce el valor " + (i+1) + " del array:");
+            vector[i] = parseInt(valor);
+        }
+
+        document.write("Array original: " + vector.join(", ") + "<br>");
+        ascendente(vector);
+        descendente(vector);
+    </script>
+</body>
+</html>

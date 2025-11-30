@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 4 - Repaso - Ejercicio 9 - Filtrar Positivos</title>
+</head>
+<body>
+    <script>
+        let vector = [15, -1, 0, 3, , 12.2, NaN, undefined];
+        document.write("Array original: " + vector.join(", ") + "<br>");
+        document.write("Los datos válidos y positivos son: ");
+        filtradoPositivos(vector);
+
+        function filtradoPositivos(vector) {
+            const filtrado = vector.filter (num => typeof num === "number" && !isNaN(num) && num > 0);
+            document.write(filtrado.join(", "));
+        }
+        
+    </script>
+</body>
+</html>

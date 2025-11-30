@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 4 - Recursividad - Ejercicio 1 - Potencia de 2</title>
+</head>
+<body>
+    <script>
+        let exp = parseInt(prompt("Introduce un número entero para calcular 2 elevado a ese número:"));
+        document.write("2 elevado a " + exp + " es: " + potenciaDeDos(exp));
+
+        function potenciaDeDos(exp) {
+            if (exp == 0) {
+                return 1;
+            } else {
+                return 2 * potenciaDeDos(exp-1);
+            }
+        }
+    </script>
+</body>
+</html>

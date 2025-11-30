@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 4 - Repaso - Ejercicio 8 - Filtrar Array</title>
+</head>
+<body>
+    <script>
+        let vector = new Array(10);
+        for (let i=0; i<vector.length; i++) {
+            let valor = prompt("Introduce el valor " + (i+1) + " del array:");
+            vector[i] = parseInt(valor);
+        }
+
+        document.write("Array original: " + vector.join(", ") + "<br>");
+        filtrarNumeros(vector);
+
+        function filtrarNumeros(vector) {
+            const filtrado = vector.filter(num => num > 10);
+            document.write("Números mayores de 10: " + filtrado.join(", ") + "<br>");
+            const filtrado2 = vector.filter(num => num < 10);
+            document.write("Números menores de 10: " + filtrado2.join(", ") + "<br>");
+        }        
+    </script>
+</body>
+</html>
