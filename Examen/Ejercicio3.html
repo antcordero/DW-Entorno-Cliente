@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 - Gestión de usuarios</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;   
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            border-radius: 10px;
+
+            height: auto;
+            background: lightgray;
+        }
+
+        /*div oculto*/
+        #modificarUsuario {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            border-radius: 10px;
+
+            height: auto;
+            background: lightgray;
+        }
+
+        input {
+            margin: 5px 0;
+            padding: 8px;
+            width: 200px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+
+        #verPass {
+            margin: 5px;
+            padding: 10px;
+            background: #bcdb34;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #Modificar {
+            margin: 5px;
+            padding: 10px;
+            background: #34db5e;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #Eliminar {
+            margin: 5px;
+            padding: 10px;
+            background: #db3934;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gestión de Usuarios</h1>
+
+    <div id="container">
+        <h3>Dar de Alta</h3>
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="pass" placeholder="Password">
+        <button onclick="agregarUsuario()">Agregar usuario</button>
+    </div>
+
+    <!--div hidden para modificar-->
+    <div id="modificarUsuario" style="display:none;">
+        <h3>Modificar Usuario</h3>
+        <input type="text" id="modNombre" placeholder="Nuevo Nombre">
+        <input type="email" id="modEmail" placeholder="Nuevo Email">
+        <input type="password" id="modPass" placeholder="Nueva Password">
+        <button onclick="confirmarModificacion()">Confirmar Modificación</button>
+    </div>
+
+    <input id="buscar" type="text" placeholder="Buscar por nombre o email">
+    <button onclick="buscarUsuario()">Buscar usuario</button>
+
+    
+    <!--tabla de resultado-->
+    <div id="resultado">
+
+    </div>
+
+
+    <script>
+        //objeto de usuarios (vacío)
+        let baseDatosUsuarios = {
+            usuarios: []
+        };
+
+        //añadir usuarios
+        function agregarUsuario() {
+            let nombreUsuario = document.getElementById("nombre").value;
+            let emailUsuario = document.getElementById("email").value;
+            let passUsuario = document.getElementById("pass").value;
+            //confirmar con un conrfirm para guardar los datos
+            if (confirm("Guardar los datos del usuario?")) {
+                baseDatosUsuarios.usuarios.push({nombre: nombreUsuario, email: emailUsuario, password: passUsuario});
+                mostrarUsuarios();
+            }
+        }
+
+        //mostrar usuarios en el div con resultado en una tabla
+        function mostrarUsuarios() {
+            //tabla del resultado
+            let resultado = "<table border='1'><tr><th>ID</th><th>Nombre</th><th>Email</th><th>Password</th><th>Acciones</th></tr>";
+            
+            for (let i=0; i<baseDatosUsuarios.usuarios.length; i++) {
+                resultado += "<tr><td>" + (i+1) + "</td><td>" + baseDatosUsuarios.usuarios[i].nombre + "</td><td>" + baseDatosUsuarios.usuarios[i].email + "</td><td>*****</td><td><button onclick='verPassword(" + i + ")' id='verPass'>Ver Pass</button><button onclick='modificarUsuario(" + i + ")' id='Modificar'>Modificar</button><button onclick='eliminarUsuario(" + i + ")' id='Eliminar'>Eliminar</button></td></tr>";
+            }
+            resultado += "</table>";
+
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+
+        //fucion para buscar usuarios por nombre desde el input buscar
+        function buscarUsuario() {
+            let nombre = document.getElementById("buscar").value;
+            baseDatosUsuarios.usuarios = baseDatosUsuarios.usuarios.filter(usu => usu.nombre == nombre);
+            mostrarUsuarios();
+        }
+
+        //funcción pque modifique un usuario con el div oculto
+        function modificarUsuario(id) {
+            if (confirm("modificar los datos del usuario?")) {
+                document.getElementById("modificarUsuario").style.display = "block";
+                document.getElementById("modificarUsuario").setAttribute("nuevo-id", id);
+            }
+            //eliminar el usuario del id que se cambió
+            eliminarUsuario(id);
+        }
+
+        //fucion para guardar la modificación en la tabla
+        function confirmarModificacion() {
+            let id = document.getElementById("modificarUsuario").getAttribute("nuevo-id");
+            let nuevoNombre = document.getElementById("modNombre").value;
+            let nuevoEmail = document.getElementById("modEmail").value;
+            let nuevaPass = document.getElementById("modPass").value;
+
+            baseDatosUsuarios.usuarios[id] = {nombre: nuevoNombre, email: nuevoEmail, password: nuevaPass};
+            document.getElementById("modificarUsuario").style.display = "none";
+            mostrarUsuarios();
+        }
+
+        //funcion para eliminnar
+        function eliminarUsuario(id) {
+            baseDatosUsuarios.usuarios.splice(id, 1);
+            mostrarUsuarios();
+        }
+
+        //funcion para ver password quitando los asteriscos en la tabla
+        function  verPassword(id) {
+            let resultado = "<table border='1'><tr><th>ID</th><th>Nombre</th><th>Email</th><th>Password</th><th>Acciones</th></tr>";
+            
+            for (let i=0; i<baseDatosUsuarios.usuarios.length; i++) {
+                if (i === id) {
+                    resultado += "<tr><td>" + (i+1) + "</td><td>" + baseDatosUsuarios.usuarios[i].nombre + "</td><td>" + baseDatosUsuarios.usuarios[i].email + "</td><td>" + baseDatosUsuarios.usuarios[i].password + "</td><td><button onclick='verPassword(" + i + ")' id='verPass'>Ver Pass</button><button onclick='modificarUsuario(" + i + ")' id='Modificar'>Modificar</button><button onclick='eliminarUsuario(" + i + ")' id='Eliminar'>Eliminar</button></td></tr>";
+                } else {
+                    resultado += "<tr><td>" + (i+1) + "</td><td>" + baseDatosUsuarios.usuarios[i].nombre + "</td><td>" + baseDatosUsuarios.usuarios[i].email + "</td><td>*****</td><td><button onclick='verPassword(" + i + ")' id='verPass'>Ver Pass</button><button onclick='modificarUsuario(" + i + ")' id='Modificar'>Modificar</button><button onclick='eliminarUsuario(" + i + ")' id='Eliminar'>Eliminar</button></td></tr>";
+                }
+            }
+            resultado += "</table>";
+
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+
+    </script>
+</body>
+</html>

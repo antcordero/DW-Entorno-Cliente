@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Combinaciones</title>
+</head>
+<body>
+    <script>
+        let numero = 0;
+        let valido = false;
+
+        //pedir numero hasta que sea correcto
+        while (valido == false) {
+            numero = prompt("Introduzca un numero mayor que 0");
+            numero = parseFloat(numero);
+            
+            if (numero > 0) {
+                valido = true;
+            } else {
+                alert("ERROR, dato incorrecto");
+            }
+        }
+
+        document.write("El numero introducido es " + numero + " y las combinaciones son:<br>");
+        mostrarNumeros(numero, numero, []);
+
+        function mostrarNumeros(a, b, miArray) {
+            //caso base
+            if (a==0) {
+                //mostrar resultado
+                let texto;
+                texto = miArray.join(" + ");
+                document.write(texto + " = " + numero);
+                document.write("<br>");
+                return;
+            }
+
+            //desde 1 hasta n o m (el menor)
+            for (let i=1; i <= a && i <= b; i++) {
+                miArray.push(i);
+                mostrarNumeros(a-i, i, miArray);
+                miArray.pop();
+            }
+        }
+    </script>
+</body>
+</html>
