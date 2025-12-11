@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 1 - Evento</title>
+</head>
+<body>
+    <button>Click me</button>
+    <script>
+        // Seleccionamos el botón
+        const button = document.querySelector('button');
+
+        // Añadimos un listener para el evento 'click'
+        button.addEventListener('click', function() {
+            alert('¡Botón clickeado!');
+        });
+
+        //isTrusted
+        button.addEventListener('click', function(event) {
+            if (event.isTrusted) {
+                console.log('El evento fue generado por una acción del usuario.');
+            } else {
+                console.log('El evento fue generado por un script.');
+            }
+        });
+
+        //altkey
+        button.addEventListener('click', function(event) {
+            if (event.altKey) {
+                console.log('Se presionó la tecla Alt durante el clic.');
+            }
+        }); 
+
+        //altitudeAngle
+        button.addEventListener('click', function(event) {
+            console.log('Ángulo de altitud del dispositivo: ' + event.altitudeAngle);
+        });
+
+        //azimuthAngle
+        button.addEventListener('click', function(event) {
+            console.log('Ángulo de acimut del dispositivo: ' + event.azimuthAngle);
+        });
+
+        //bubbles
+        button.addEventListener('click', function(event) {
+            console.log('¿El evento burbujea?: ' + event.bubbles);
+        });
+
+        //buttons
+        button.addEventListener('click', function(event) {
+            console.log('Botones presionados durante el clic: ' + event.buttons);
+        });
+
+        //cancelable
+        button.addEventListener('click', function(event) {
+            console.log('¿El evento es cancelable?: ' + event.cancelable);
+        });
+
+        //cancelBubble
+        button.addEventListener('click', function(event) {
+            console.log('Valor de cancelBubble antes de cambiarlo: ' + event.cancelBubble);
+            event.cancelBubble = true;
+            console.log('Valor de cancelBubble después de cambiarlo: ' + event.cancelBubble);
+        });
+
+        
+
+    </script>
+</body>
+</html>
