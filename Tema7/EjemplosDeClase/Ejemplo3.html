@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 3 - Eventos de ratón</title>
+</head>
+<body>
+    <h2>Eventos de ratón</h2>
+    <p>Contenido de un párrafo</p>
+
+    <script>
+        const p = document.querySelector('p');
+        const h2 = document.querySelector('h2');
+
+        h2.addEventListener('mouseover', function() {
+            h2.style.backgroundColor = 'green';
+        });
+
+        h2.addEventListener('mouseout', function() {
+            h2.style.backgroundColor = '';
+        });
+
+        p.addEventListener('mouseover', function() {
+            p.style.backgroundColor = 'yellow';
+        });
+
+        p.addEventListener('mouseout', function() {
+            p.style.backgroundColor = '';
+        });
+
+    </script>
+</body>
+</html>
