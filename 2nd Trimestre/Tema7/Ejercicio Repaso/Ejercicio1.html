@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Repaso - Galería de imágenes</title>
+</head>
+<body>
+    <div id="imagenGrande">
+        <img src="https://picsum.photos/200/150?random=1" alt="fotoPrincipal" id="fotoPrincipal" width="600">
+    </div>
+    <div id="galeria">
+        <img src="https://picsum.photos/200/150?random=1" alt="foto">
+        <img src="https://picsum.photos/200/150?random=2" alt="foto">
+        <img src="https://picsum.photos/200/150?random=3" alt="foto">
+    </div>
+
+    <script>
+        const imagenGrande = document.getElementById('fotoPrincipal');
+        const imagenesGaleria = document.querySelectorAll('#galeria img');
+
+        //cambiar fotos de la galería pequeña al hacer click
+        imagenesGaleria.forEach(imagen => {
+            imagen.addEventListener('click', () => {
+                imagenGrande.src = imagen.src;
+            });
+        });
+
+        //resaltar la imagen pequeña al pasar el ratón por encima
+        imagenesGaleria.forEach(imagen => {
+            imagen.addEventListener('mouseover', () => {
+                imagen.style.border = '2px solid red';
+            });
+
+            imagen.addEventListener('mouseout', () => {
+                imagen.style.border = 'none';
+            });
+
+        });
+
+        //al hacer click en la imagen grande, abrirla en una nueva pestaña
+        imagenGrande.addEventListener('click', () => {
+            window.open(imagenGrande.src, '_blank');
+        });
+
+    </script>
+</body>
+</html>
