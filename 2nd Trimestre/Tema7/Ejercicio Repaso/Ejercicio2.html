@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Repaso - Formulario con validación en tiempo real</title>
+</head>
+<body>
+    <!-- Formulario con validación en tiempo real - Nombre, Email, Contraseña, Confirmar Contraseña -->
+    <form id="formularioRegistro">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" required>
+        <br><br>
+
+        <label for="confirmarContrasena">Confirmar Contraseña:</label>
+        <input type="password" id="confirmarContrasena" name="confirmarContrasena" required>
+        <br><br>
+
+        <input type="submit" value="Registrar">
+
+        <script>
+            var formulario = document.getElementById('formularioRegistro');
+            var nombre = document.getElementById('nombre');
+            var email = document.getElementById('email');
+            var contrasena = document.getElementById('contrasena');
+            var confirmarContrasena = document.getElementById('confirmarContrasena');
+
+            // Validación en tiempo real
+            //Nomrbe con 3 caracteres mínimo
+            nombre.addEventListener('input', function() {
+                if (nombre.value.lenght < 3) {
+                    nombre.setCustomValidity('El nombre debe tener al menos 3 caracteres.');
+                } else {
+                    nombre.setCustomValidity('');
+                }
+            });
+
+            //Email con formato correcto - expresión regular
+            email.addEventListener('input', function() {
+                var emailPatern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/; 
+                //ejemplo de correo válido: usuario@dominio.com
+                if (!emailPatern.test(email.value)) {
+                    email.setCustomValidity('Por favor, introduce un email válido.');
+                } else {
+                    email.setCustomValidity('');
+                }
+            });
+
+            //Contraseña con al menos 8 caracteres, una mayúscula, una minúscula y un número
+            contrasena.addEventListener('input', function(){
+                var contrasenaPatern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$/;
+                if (!contrasenaPatern.test(contrasena.value)) {
+                    contrasena.setCustomValidity('La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.');
+                } else {
+                    contrasena.setCustomValidity('');
+                }
+            });
+
+            //Confirmar contraseña igual a la contraseña
+            confirmarContrasena.addEventListener('input', function() {
+                if (confirmarContrasena.value !== contrasena.value) {
+                    confirmarContrasena.setCustomValidity('Las contraseñas no coinciden.');
+                } else {
+                    confirmarContrasena.setCustomValidity('');
+                }
+            });
+
+            //Enviar formulario si es válido - si es válido mostrar alerta de éxito
+            formulario.addEventListener('submit', function(event) {
+                if (!formulario.checkvalidation()) {
+                    event.preventDefault();
+                } else {
+                    alert("Registro exitoso!");
+                }
+            })
+        </script>
+</body>
+</html>
