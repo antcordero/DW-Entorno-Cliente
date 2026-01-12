@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1 - Posición del ratón en la pantalla</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+        #container {
+            min-height: 350px;
+            max-width: 350px;
+            background-color: lightgray;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="container" onmousedown="mostrarPosicion(event)">
+        <p>Contenedor para coger la posición del ratón dentro del div</p>
+    </div>
+
+    <script>
+        var posicion = document.getElementById("container");
+
+        //coger posicion
+        function mostrarPosicion(evento) {
+            posicion = "La poscición del ratón en la pantalla es: (" + evento.clientX + ", " + evento.clientY + ")"
+            console.log(posicion)
+        }
+    </script>
+</body>
+</html>

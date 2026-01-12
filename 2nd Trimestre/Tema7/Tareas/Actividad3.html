@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3 - Menú contextual</title>
+</head>
+<body>
+    <!-- Crea una página que no permita que se abra el menú contextual sobre ningún elemento de la web y muestre un alert que nos indique -->
+    <script>
+        document.addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+            alert("El menú contextual está deshabilitado en esta página.");
+        });
+    </script>
+</body>
+</html>
