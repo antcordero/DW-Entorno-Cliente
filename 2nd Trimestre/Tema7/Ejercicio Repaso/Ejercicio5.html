@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 - Arrastrar ficha</title>
+    <style>
+        #ficha {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            cursor: grab;
+        }
+
+        #zona {
+            width: 300px;
+            height: 200px;
+            background-color: lightgray;
+            border: 2px dashed gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>Arrastrar ficha naranja a la zona gris</h2>
+    <div id="ficha">
+
+    </div>
+    
+    <div id="zona">
+        <p>Suelta aquí</p>
+    </div>
+
+    <script>
+        var ficha = document.getElementById("ficha");
+        var zona = document.getElementById("zona");
+        let dropped = false;
+
+        //evento dragstart en la ficha
+        ficha.addEventListener("dragstart", function(event){
+            event.dataTransfer.setData("text/plain", "ficha");
+            dropped = false;
+        });
+
+        //finalizar el arrastre
+        ficha.addEventListener("dragend", function(event){
+            if (!dropped) {
+                alert("Debes soltar la ficha en la zona gris");
+            }
+        });
+
+        //evento drop en la zona
+        zona.addEventListener("drop", function(event){
+            event.preventDefault();
+            if (event.dragenter) {
+                zona.style.backgroundColor = "lightgreen";
+            } else {
+                zona.style.backgroundColor = "lightgray";
+            }
+        });
+    </script>
+
+</body>
+</html>
