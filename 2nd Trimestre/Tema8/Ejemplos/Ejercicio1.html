@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valor fuera de Rango</title>
+</head>
+<body>
+    <script>
+        try {
+            let numero = parseInt(prompt("Da un número entre 0 y 10"));
+            if (numero < 0 || numero > 10) {
+                throw new RangeError("Valor incorrecto para la nota.");
+            } else {
+                document.writeln("El número es: " + numero);
+            }
+        } catch (error) {
+            if (error instanceof RangeError){
+                alert('ERROR: ' + '${error. name}: ${error. message}' + " Por favor, vuelve a introducir un valor para la nota.");
+                };
+        } finally {
+            document.writeln("Fin del código");
+        }
+    </script>
+</body>
+</html>
