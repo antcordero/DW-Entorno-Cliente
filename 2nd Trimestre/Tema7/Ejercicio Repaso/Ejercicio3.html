@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 - Div que cambia de color</title>
+    <style>
+        #container {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            transition: background-color 0.5s;
+        }
+        /*
+        #container:hover {
+            background-color: lightcoral;
+        }*/
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p>Pasa el ratón por encima</p>
+    </div>
+
+    <div id="coordenadas">
+
+    </div>
+
+    <script>
+        var container = document.getElementById('container');
+        var coordenadasDiv = document.getElementById('coordenadas');
+        
+        container.addEventListener("mouseover", function() {
+            container.style.backgroundColor = "lightcoral";
+        })
+
+        container.addEventListener("mouseout", function() {
+            container.style.backgroundColor = "lightblue";
+        })
+
+        //escribir coordenadas en el segundo div
+        container.addEventListener("mouseover", function(event){
+            var x = event.clientX;
+            var y = event.clientY;
+            coordenadasDiv.innerHTML = "X:" + x + ", Y:" + y;
+        })
+
+    </script>
+</body>
+</html>

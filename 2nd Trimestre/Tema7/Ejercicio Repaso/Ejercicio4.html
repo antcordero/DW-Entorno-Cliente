@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 - Input text que cuenta los caracteres en tiempo real</title>
+</head>
+<body>
+    <label for="campo">Escribe algo</label>
+    <input type="text" id="campo" />
+
+    <p id="contador"></p>
+
+    <script>
+        var campoTexto = document.getElementById("campo");
+        var contLetras = document.getElementById("contador");
+        
+        //coger los valores del input en tiempo real - sin contar la a
+        campoTexto.addEventListener("input", function(){
+            var texto = campoTexto.value;
+            var numeroLetras = texto.replace(/a/gi, "");
+            numeroLetras = numeroLetras.length;
+
+            contLetras.innerHTML = "Número de caracteres: " + numeroLetras;
+        });
+        
+
+    </script>
+</body>
+</html>
