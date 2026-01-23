@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Canvas - Cuadrado con cuadrículas</title>
+    <style>
+        canvas {
+            border: 3px solid red;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas id="canvas" height="150" width="150"></canvas>
+
+    <script>
+        //Dibujar cudrado en canvas con cuadriculas dentro
+        function draw() {
+            //dibujar cuadrado exterior
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext("2d");
+
+            //dos bucles for para las cuadrículas
+            for (let i=0; i<6; i++) {
+                for (let j=0; j<6; j++) {
+                    ctx.fillStyle = `rgb(${Math.floor(255-42.5*1)}, 0, ${Math.floor(255-42.5*j)})`;
+                    ctx.fillRect(j*25, i*25, 25, 25);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
