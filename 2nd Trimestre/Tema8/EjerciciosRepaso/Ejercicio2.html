@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 Repaso - Canva con fondo degradado</title>
+</head>
+
+<body onload="draw()">
+    <canvas id="canva" height="200" width="350"></canvas>
+
+    <script>
+        function draw() {
+            //dibujar cuadrado exterior
+            const c = document.getElementById("canva");
+            const ctx = c.getContext("2d");
+
+            //dibujar degradado en canva
+            const grad = ctx.createLinearGradient(0, 0, 280, 0);
+            grad.addColorStop(0, "red");
+            grad.addColorStop(1, "darkblue");
+
+            //rellenar el cuadrado con gradient
+            ctx.fillStyle = grad;
+            ctx.fillRect(10, 10, 280, 130);
+
+            //texto de dentro
+            ctx.font = "25px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("Hola Canvas", 10, 80);
+        }
+    </script>
+
+</body>
+
+</html>

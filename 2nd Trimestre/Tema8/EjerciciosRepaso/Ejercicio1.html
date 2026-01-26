@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Repaso 1 - Validador JSON</title>
+</head>
+<input>
+    <h1>Validador de datos JSON</h1>
+    <p>Pega un JSON con las propiedades name (String) y age (number)</p>
+    <input type="text" id="cajaTexto">
+    <button id="validarJSON">Validar JSON</button>
+
+    <h2>Resultado</h2>
+    <div id="resultado"></div>
+
+    <script>
+        let texto = document.getElementById("cajaTexto").value
+        let btnValidar = document.getElementById("validarJSON")
+        let resultado = document.getElementById("resultado");
+
+        //validar los datos usando gestion de errores
+        try {
+            //validar el JSON en la función del botón
+            let textoJSON = JSON.parse(texto);
+            if (textoJSON.include(texto.name) && textoJSON.include(texto.age)) {
+                resultado = resultado.innerHTML("JSON válido" + stringify(textoJSON));
+            } else if (!textoJSON.include(texto.name) || !textoJSON.include(texto.name)) {
+                throw new RangeError ("Error de validación")
+            }
+
+        //lanzar error por validación o por sintaxis
+        } catch (error) {
+            if (error instanceof SyntaxError){
+                resultado = resultado.innerHTML("<p>" + error + "</p>")
+            } else if (error instanceof RangeError) {
+                resultado = resultado.innerHTML("<p>" + error + "</p>")
+            }
+        }
+
+
+    </script>
+</body>
+</html>
