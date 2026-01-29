@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Repaso 6 - Web que guarda datos en local con WEB API STORAGE</title>
+</head>
+<body>
+    <h1>Lista de tareas</h1>
+    <input type="text" id="entradaTarea">
+    <button id="addTarea" onclick="agregarTarea">Agregar</button>
+
+    <div id="resultado">
+
+    </div>
+
+    <script>
+        let entradatarea = document.getElementById("entradaTarea");
+        let tarea = entradatarea.value();
+        let add_btn = document.getElementById("addTarea");
+        let resultado = document.getElementById("resultado");
+
+        //array de tareas
+        let arrayTareas = {
+            tareas: []
+        }
+
+        //agregar la tarea al div
+        function agregarTarea(tarea){
+            arrayTareas.tareas.push(localStorage.setItem("name", tarea));
+        }
+
+        function imprimirTarea(tarea) {
+            resultado.innerHTML = "<li><ol>" + localStorage.getItem(tarea) + "<button id='Eliminar' onclick('eliminarTarea(tarea)')></button></ol></li>";
+        }
+
+        //función para eliminar tarea
+        function eliminarTarea(tarea) {
+
+        }
+
+    </script>
+</body>
+</html>
