@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flechas canvas</title>
+    <style>
+        canvas {
+            border: 3px solid red;
+        }
+    </style>
+</head>
+
+<body onload="dibujar()">
+
+    <canvas id="lienzo" width="200" height="120"></canvas>
+    <br>
+    <button id="btnDescargar">Descargar imagen</button>
+
+    <script>
+        function dibujar() {
+            const canvas = document.getElementById("lienzo");
+            if (!canvas.getContext) return;
+            const ctx = canvas.getContext("2d");
+
+            //Flecha izquierda (triángulo relleno)
+            ctx.beginPath();
+            ctx.moveTo(40, 60);
+            ctx.lineTo(80, 30);
+            ctx.lineTo(80, 90);
+            ctx.closePath();
+            ctx.fill();
+
+            //Flecha derecha (triángulo relleno)
+            ctx.beginPath();
+            ctx.moveTo(160, 60);
+            ctx.lineTo(120, 30);
+            ctx.lineTo(120, 90);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        //botón para descargar la imagen
+        document.getElementById("btnDescargar")
+            .addEventListener("click", function () {
+                const canvas = document.getElementById("lienzo");
+                //HTMLCanvasElement.toDataUR
+                const url = canvas.toDataURL("image/png");
+                //el enlace aparece en la consola
+                console.log(url);                          
+
+                //descarga
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "flechas.png";
+                a.click();
+        });
+    </script>
+</body>
+
+</html>
