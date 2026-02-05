@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 2 - Función Callback Hell</title>
+</head>
+<body>
+    <script>
+        /*
+            Inicio
+            Fin inmediato
+            Datos cargados
+            Datos procesados
+            ¡Proceso completo!
+        */
+        function iniciar(datos) {
+            console.log("Inicio");
+            prcesarDatos(datos, precesarDatos2(datos2, callback));
+            console.log("Fin inmediato")
+
+        }
+
+        function procesarDatos(datos, callback) {
+            setTimeout(function () {
+                console.log("Datos cargados");
+                callback();
+            }, 1000);
+        }
+
+        function procesarDatos2(datos2, callback) {
+            setTimeout(function () {
+                console.log("Datos precesados");
+                callback();
+            }, 1000);
+        }
+        
+        iniciar("mis datos", function () {
+            console.log("¡Proceso completo!");
+        });
+    </script>
+</body>
+</html>

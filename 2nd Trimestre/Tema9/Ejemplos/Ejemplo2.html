@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 2 - Función Callback</title>
+</head>
+<body>
+    <script>
+        /*
+            Inicio
+            Fin inmediato
+            Procesando datos
+            Tarea terminada
+        */
+        function iniciar(datos) {
+            console.log("Inicio");
+            prcesarDatos(datos, callback);
+            console.log("Fin inmediato")
+
+        }
+
+        function procesarDatos(datos, callback) {
+            setTimeout(function () {
+                console.log("Procesando datos");
+                callback();
+            }, 1000);
+        }
+        
+        iniciar("mis datos", function () {
+            console.log("Tarea terminada");
+        });
+    </script>
+</body>
+</html>
