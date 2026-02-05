@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 1 - Programación asíncrona con settimeout</title>
+</head>
+<body>
+    <button id="mandarMensaje">Iniciar mensaje retrasado</button>
+    <script>
+        var mandar = document.getElementById("mandarMensaje");
+
+        mandar.addEventListener("click", function () {
+            console.log("Mensaje programado...");
+            setTimeout(function () {
+                alert('Han pasado 3 segundos');
+            }, 3000),
+            console.log("Esta línea se ejecuta sin esperar");
+        });
+
+    </script>
+</body>
+</html>

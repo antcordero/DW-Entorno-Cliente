@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8 - API Notificaciones</title>
+</head>
+<body>
+    <button id="habilitar">Habilitar Notificaciones</button>
+    <button id="enviarNotificacion">Enviar Notificación</button>
+
+
+    <script>
+        let habilitar = document.getElementById("habilitar");
+        let enviarNotificacion = document.getElementById("enviarNotificacion");
+
+        //Habilitar botón de notificaciones
+        habilitar.addEveListener('click', function() {
+            if (!("Notification" in window)) {
+                console.log(
+                  "Este navegador no es compatible con las notificaciones de escritorio",
+                );
+              } else if (Notificacion.permision === "granted") {
+                console.log("Permiso concedido");
+                enviarNotificacion.disabled = false;
+                //Enviar notificación
+                enviarNotificacion.addEventListener('click', function() {
+                    var notificacion = new Notification("Hola" , {
+                        body: "Hola Caracola!",
+                        icon: "https://www.google.com/favicon.ico",
+                    });
+                });
+              } else {
+                console.log("Permiso denegado");
+              }
+        });
+
+        
+    </script>
+
+</body>
+</html>
