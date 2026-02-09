@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 8 - ASYNC/AWAIT</title>
+</head>
+<body>
+    <script>
+        /*
+        * Crear función async procesoCompleto() que muestre:
+        * Muestre: Paso 1:Iniciando...
+        * Esperar 3 segundos (simulando una tarea)
+        * Muestre: Paso 2: Datos recibidos...
+        * Esperar 2 segundos (simulando otra tarea)
+        * Muestre: "Paso 3: Completado"
+        * Llamar a procesoCompleto() desde una función async principal y usa try/catch para errores
+        */
+
+        function esperar(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function procesoCompleto() {
+            console.log("Paso 1: Iniciando...");
+            await esperar(3000); // Simula una tarea de 3 segundos
+
+            console.log("Paso 2: Datos recibidos...");
+            await esperar(2000); // Simula otra tarea de 2 segundos
+
+            console.log("Paso 3: Completado");
+        }
+
+        async function main() {
+            try {
+                await procesoCompleto();
+            } catch (error) {
+                console.error("Error en el proceso:", error);
+            }
+        }
+
+        main();
+    </script>
+</body>
+</html>

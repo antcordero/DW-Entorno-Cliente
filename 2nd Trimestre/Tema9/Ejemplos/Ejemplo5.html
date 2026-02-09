@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 5 - Encadenar Promesas</title>
+</head>
+<body>
+    <script>
+        // Función auxiliar: espera un tiempo y luego procesa un valor.
+        // Devuelve una Promesa para poder encadenarla con .then().
+        function esperarYProcesar(valor, factor, tiempo) {
+            // Creamos y devolvemos una Promesa. "resolve" se llama cuando el trabajo termina bien.
+            return new Promise((resolve) =>  {
+                // Simula una tarea asíncrona (por ejemplo, una petición a servidor) usando setTimeout.
+                setTimeout(() => {
+                    // "Procesamiento": multiplicamos el valor recibido por un factor.
+                    const resultado = valor * factor;
+                    // Mostramos el resultado intermedio por consola.
+                    console.log("Resultado = " + resultado);
+                    // Resolvemos la promesa devolviendo "resultado" para el siguiente .then().
+                    resolve(resultado);
+                }, tiempo);
+            });
+        }
+        
+        // Este log se ejecuta inmediatamente (código síncrono).
+        console.log("Inicio cadena");
+
+        // Promesa inicial: tras 1 segundo "produce" el valor 5.
+        new Promise((resolve) => {
+            setTimeout(() => {
+                // Resolvemos la promesa con el valor inicial.
+                resolve(5);
+                // Este log ocurre dentro del setTimeout.
+                // Ojo: aunque llamemos antes a resolve(5), los .then() se ejecutan como microtareas
+                // (después de terminar el callback actual), por eso este console.log suele verse
+                // antes que los logs de los .then().
+                console.log("Resultado: 5");
+            }, 1000);
+        })
+
+        // Primer eslabón de la cadena: recibe el 5 y lo procesa (x2) tras 1.5s.
+        .then((valor) => {
+            // IMPORTANTE: al devolver una Promesa, el siguiente .then() espera a que esta termine.
+            return esperarYProcesar(valor, 2, 1500);
+        })
+
+        // Segundo eslabón: recibe el resultado anterior y lo procesa (x3) tras 1s.
+        .then((valor) => {
+            return esperarYProcesar(valor, 3, 1000)
+        })
+
+        // Captura de errores: si alguna promesa de la cadena falla (reject o excepción), cae aquí.
+        .catch((error) => {
+            console.log("Error en la cadena", error)
+        })
+
+        // Este log también es inmediato: la cadena se "programa", pero su resultado llega después.
+        console.log("Cadena enviada")
+    </script>
+</body>
+</html>

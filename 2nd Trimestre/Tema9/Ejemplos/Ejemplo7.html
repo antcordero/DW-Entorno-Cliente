@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 7 - Hacer que el ejemplo 6 falle</title>
+</head>
+<body>
+    <script>
+        //Crear promesas para obtener por consola
+        /**
+        * Iniciando tareas paralelas
+        * Promise.all ejecutado (no espera)
+        * Error -> promise.all FALLO ¡B falló!
+        */
+
+        const promesa1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Promesa 1 resuelta");
+            }, 2000);
+        });
+
+        const promesa2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject("Promesa 2 falló");
+            }, 3000);
+        });
+
+
+        console.log("Iniciando tareas paralelas");
+
+        Promise.all([promesa1, promesa2])
+            .then(resultados => {
+                console.log("Todas las promesas resueltas:", resultados);
+            })
+            .catch(error => {
+                console.error("Error en alguna promesa:", error);
+            });
+
+    </script>
+</body>
+</html>
