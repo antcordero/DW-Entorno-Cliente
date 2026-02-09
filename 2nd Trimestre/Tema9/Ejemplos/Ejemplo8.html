@@ -33,6 +33,7 @@
 
         async function main() {
             try {
+                console.log("Proceso iniciado");
                 await procesoCompleto();
             } catch (error) {
                 console.error("Error en el proceso:", error);
@@ -40,6 +41,7 @@
         }
 
         main();
+        console.log("main() llamada (no espera)");
     </script>
 </body>
 </html>
