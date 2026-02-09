@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo Básico AJAX</title>
+</head>
+
+<body>
+    <button id="cargar">Cargar Datos</button>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('cargar').addEventListener('click', function () {
+            fetch("https://lopegonzalez.es/servicios/vehiculos.php?matricula=1702TGG")
+                .then(respuesta => {
+                    if (respuesta.ok) {
+                        return respuesta.json();
+                    }
+                })
+                .then(datos => {
+                    console.log(datos);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        });
+    </script>
+</body>
+
+</html>

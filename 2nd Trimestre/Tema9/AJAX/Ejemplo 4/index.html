@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario simple</title>
+</head>
+
+<body>
+
+    <form id="miFormulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" value="María"><br><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" value="25"><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <br>
+
+    <div id="resultado"></div>
+
+    <script>
+        //Usar formdata
+        document.getElementById('miFormulario').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            //Crear el objeto FormData a partir del formulario
+            const form = document.getElementById('miFormulario');
+            const formData = new FormData(form);
+
+            //Recoger los datos del FormData
+            let resultado = "<h3>Datos enviados:</h3><ul>";
+            for (let [clave, valor] of formData.entries()) {
+                resultado += `<li><strong>${clave}:</strong> ${valor}</li>`;
+            }
+            resultado += "</ul>";
+
+            document.getElementById('resultado').innerHTML = resultado;
+        });
+    </script>
+
+</body>
+
+</html>

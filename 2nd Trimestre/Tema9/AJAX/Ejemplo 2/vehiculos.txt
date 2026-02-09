@@ -1,0 +1,6 @@
+{
+    "Marca": "Citroen,
+    "Modelo": "C4",
+    "Cilindrada": "110CV";
+    "Color": "Rojo"
+}
