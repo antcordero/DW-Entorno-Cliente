@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Votación AJAX</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .contenedor-encuesta {
+      border: 1px solid #8ab;
+      padding: 15px;
+      width: 380px;
+      margin-bottom: 15px;
+      background-color: #f9ffff;
+    }
+
+    .pregunta {
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .opcion {
+      margin: 4px 0;
+      cursor: pointer;
+    }
+
+    #zona-resultados {
+      border: 1px solid #8ab;
+      padding: 15px;
+      width: 380px;
+      background-color: #ffffff;
+    }
+  </style>
+
+  <script>
+    function enviarVoto(valor) {
+      const peticion = new XMLHttpRequest()
+
+      peticion.onreadystatechange = function () {
+        if (peticion.readyState === 4 && peticion.status === 200) {
+          document.getElementById("zona-resultados").innerHTML = peticion.responseText
+        }
+      }
+
+      peticion.open("GET", "encuesta_voto.php?voto=" + encodeURIComponent(valor), true)
+      peticion.send()
+    }
+  </script>
+</head>
+
+<body>
+  <div class="contenedor-encuesta">
+    <div class="pregunta">¿Qué equipo crees que ganará la liga este año?</div>
+
+    <div class="opcion">
+      <label>
+        <input type="radio" name="equipo" value="0" onclick="enviarVoto(this.value)">
+        Real Madrid
+      </label>
+    </div>
+
+    <div class="opcion">
+      <label>
+        <input type="radio" name="equipo" value="1" onclick="enviarVoto(this.value)">
+        Barcelona
+      </label>
+    </div>
+
+    <div class="opcion">
+      <label>
+        <input type="radio" name="equipo" value="2" onclick="enviarVoto(this.value)">
+        Atlético de Madrid
+      </label>
+    </div>
+
+    <div class="opcion">
+      <label>
+        <input type="radio" name="equipo" value="3" onclick="enviarVoto(this.value)">
+        Sevilla
+      </label>
+    </div>
+  </div>
+
+  <div id="zona-resultados">
+    <strong>Resultados de la encuesta</strong><br>
+    Todavía no has votado. Elige un equipo para ver las barras de porcentaje.
+  </div>
+</body>
+</html>
