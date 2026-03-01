@@ -3,42 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio Repaso 1 - Validador JSON</title>
+    <title>Validacion JSON</title>
 </head>
-<input>
-    <h1>Validador de datos JSON</h1>
-    <p>Pega un JSON con las propiedades name (String) y age (number)</p>
-    <input type="text" id="cajaTexto">
-    <button id="validarJSON">Validar JSON</button>
+<body>
 
-    <h2>Resultado</h2>
+    <h2>Validacion de Datos JSON</h2>
+
+    <p>Pega un JSON y nosotros te lo arreglamos</p>
+
+    <textarea id="jsonInput">
+        { "name": "Ana", "age": 25 }
+    </textarea>
+    <br><br>
+
+    <button onclick="validacion()">validar JSON</button>
+
+    <h3>Resultado</h3>
+    
     <div id="resultado"></div>
 
     <script>
-        let texto = document.getElementById("cajaTexto").value
-        let btnValidar = document.getElementById("validarJSON")
-        let resultado = document.getElementById("resultado");
-
-        //validar los datos usando gestion de errores
-        try {
-            //validar el JSON en la función del botón
-            let textoJSON = JSON.parse(texto);
-            if (textoJSON.include(texto.name) && textoJSON.include(texto.age)) {
-                resultado = resultado.innerHTML("JSON válido" + stringify(textoJSON));
-            } else if (!textoJSON.include(texto.name) || !textoJSON.include(texto.name)) {
-                throw new RangeError ("Error de validación")
-            }
-
-        //lanzar error por validación o por sintaxis
-        } catch (error) {
-            if (error instanceof SyntaxError){
-                resultado = resultado.innerHTML("<p>" + error + "</p>")
-            } else if (error instanceof RangeError) {
-                resultado = resultado.innerHTML("<p>" + error + "</p>")
+        class ValidacionErrores extends Error {
+            constructor(err){
+                super(err);
+                this.name = "validación erronea";
             }
         }
 
+        function ValidarDatos(object) {
+            if (!object) {
+                throw new ValidacionErrores("El JSON es null");
+                
+            }
+            // Validar name
+            if (object.name === undefined) {
+            throw new ValidacionErrores("El JSON no tiene name");
+            }
+
+            if (typeof object.name !== "string") {
+            throw new ValidacionErrores("name debe ser un string");
+            }
+
+            if (object.name.trim() === "") {
+            throw new ValidacionErrores("name no puede estar vacio");
+            }
+
+            // Validar age
+            if (object.age === undefined) {
+                throw new ValidacionErrores("El JSON no tiene age");
+            }
+
+            if (typeof object.age !== "number") {
+                throw new ValidacionErrores("age debe ser un numero");
+            }
+
+            if (object.age <= 0) {
+                throw new ValidacionErrores("age debe ser mayor que 0");
+            }
+
+
+        }
+
+
+
+
+        function validacion() {
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = "";
+
+            try {
+                const texto = document.getElementById("jsonInput").value;
+
+                if (!texto.trim()) {
+                    throw new ValidacionErrores("El JSON esta vacio");
+                }
+
+                const textoJSON = JSON.parse(texto);
+
+                ValidarDatos(textoJSON);
+
+                resultado.innerHTML = "JSON VALIDO"
+
+                
+            } catch (error) {
+                if (error instanceof SyntaxError) {
+                    resultado.innerHTML = "Error de sintaxis: JSON mal formado";
+                } else if (error instanceof ValidacionErrores) {
+                    resultado.innerHTML = error.message
+                }else{
+                    resultado.innerHTML= "error inesperado";
+                }
+                
+            }
+
+
+        }
+
+
+
 
     </script>
+
+
 </body>
 </html>

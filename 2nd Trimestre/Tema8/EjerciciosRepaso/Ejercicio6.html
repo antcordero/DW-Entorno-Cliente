@@ -1,44 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio Repaso 6 - Web que guarda datos en local con WEB API STORAGE</title>
+    <meta charset="UTF-8" />
+    <title>Lista de tareas con Web Storage</title>
 </head>
+
 <body>
     <h1>Lista de tareas</h1>
-    <input type="text" id="entradaTarea">
-    <button id="addTarea" onclick="agregarTarea">Agregar</button>
 
-    <div id="resultado">
+    <input id="tareaInput" type="text" placeholder="Escribe una tarea" />
+    <button id="btnAgregar">Agregar</button>
 
-    </div>
+    <ul id="listaTareas"></ul>
 
     <script>
-        let entradatarea = document.getElementById("entradaTarea");
-        let tarea = entradatarea.value();
-        let add_btn = document.getElementById("addTarea");
-        let resultado = document.getElementById("resultado");
+        // Claves que usaremos en localStorage
+        const CLAVE_TAREAS = "tareas";
 
-        //array de tareas
-        let arrayTareas = {
-            tareas: []
+        // Referencias a elementos del DOM
+        const inputTarea = document.getElementById("tareaInput");
+        const btnAgregar = document.getElementById("btnAgregar");
+        const listaTareas = document.getElementById("listaTareas");
+
+        // 1. Cargar tareas guardadas al iniciar
+        function cargarTareas() {
+            // Obtenemos la cadena del localStorage y la convertimos a array
+            const tareasGuardadas = JSON.parse(localStorage.getItem(CLAVE_TAREAS)) || [];
+            tareasGuardadas.forEach(texto => {
+                crearElementoTarea(texto);
+            });
         }
 
-        //agregar la tarea al div
-        function agregarTarea(tarea){
-            arrayTareas.tareas.push(localStorage.setItem("name", tarea));
+        // 2. Guardar array de tareas en localStorage
+        function guardarTareas() {
+            const tareas = [];
+            // Recorremos los <li> actuales para reconstruir el array
+            listaTareas.querySelectorAll("li").forEach(li => {
+                tareas.push(li.firstChild.textContent); // el texto está en el primer nodo de texto
+            });
+            localStorage.setItem(CLAVE_TAREAS, JSON.stringify(tareas));
         }
 
-        function imprimirTarea(tarea) {
-            resultado.innerHTML = "<li><ol>" + localStorage.getItem(tarea) + "<button id='Eliminar' onclick('eliminarTarea(tarea)')></button></ol></li>";
+        // 3. Crear un <li> con la tarea y botón eliminar
+        function crearElementoTarea(texto) {
+            const li = document.createElement("li");
+            li.textContent = texto + " ";
+
+            const btnEliminar = document.createElement("button");
+            btnEliminar.textContent = "Eliminar";
+            btnEliminar.addEventListener("click", () => {
+                listaTareas.removeChild(li);
+                guardarTareas(); // actualizamos localStorage
+            });
+
+            li.appendChild(btnEliminar);
+            listaTareas.appendChild(li);
         }
 
-        //función para eliminar tarea
-        function eliminarTarea(tarea) {
+        // 4. Manejar el clic en "Agregar"
+        btnAgregar.addEventListener("click", () => {
+            const texto = inputTarea.value.trim();
+            if (texto === "") return;
 
-        }
+            crearElementoTarea(texto);
+            guardarTareas();      // guardamos la lista actualizada
+            inputTarea.value = ""; // limpiamos el input
+            inputTarea.focus();
+        });
+
+        // 5. Cargar las tareas al cargar la página
+        cargarTareas();
 
     </script>
 </body>
+
 </html>

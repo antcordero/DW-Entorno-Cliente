@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Geolocalización + Google Maps</title>
+</head>
+<body>
+
+  <h2>Geolocalización + Google Maps</h2>
+
+  <button id="btnUbicacion">Actualizar Ubicación</button>
+  <button id="btnMaps">Mostrar en Google Maps</button>
+
+  <p id="info">Pulsa “Actualizar Ubicación”.</p>
+
+  <script>
+    const info = document.getElementById("info");
+    const btnUbicacion = document.getElementById("btnUbicacion");
+    const btnMaps = document.getElementById("btnMaps");
+
+    let lat = null;
+    let lng = null;
+
+    btnUbicacion.addEventListener("click", () => {
+      if (!navigator.geolocation) {
+        info.textContent = "Tu navegador no soporta geolocalización.";
+        return;
+      }
+
+      info.textContent = "Obteniendo ubicación...";
+
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          lat =pos.coords.latitude;
+          lng = pos.coords.longitude;
+
+          info.textContent = `Ubicación OK: ${lat.toFixed(6)}, ${lng.toFixed(6)} (precisión ~ ${Math.round(pos.coords.accuracy)}m)`;
+        },
+        (err) => {
+          // err.code: 1 permiso denegado, 2 no disponible, 3 timeout
+          info.textContent = `Error: ${err.message}`;
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
+        }
+      );
+    });
+
+    btnMaps.addEventListener("click", () => {
+      if (lat === null || lng === null) {
+        info.textContent = "Primero obtiene la ubicación.";
+        return;
+      }
+
+      const url = `https://www.google.com/maps?q=${lat},${lng}`;
+      window.open(url, "_blank");
+    });
+  </script>
+
+</body>
+</html>

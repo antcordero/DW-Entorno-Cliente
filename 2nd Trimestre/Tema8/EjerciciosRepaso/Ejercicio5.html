@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Esquiva Obstáculos</title>
+</head>
+<body>
+
+<h2>Esquiva los obstáculos (flechas ↑ ↓)</h2>
+
+<canvas id="gameCanvas" width="600" height="300"
+        style="border:1px solid black;"></canvas>
+
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+let gameOver = false;
+
+// 🟢 Jugador
+const jugador = {
+    x: 50,
+    y: 130,
+    size: 30,
+    speed: 50
+};
+
+// 🔴 Obstáculos
+let obstaculos = [];
+
+// Crear nuevo obstáculo
+function nuevoObstaculo() {
+    const altura = Math.random() * (canvas.height - 80);
+    obstaculos.push({
+        x: canvas.width,
+        y: altura,
+        width: 20,
+        height: 60,
+        speed: 3
+    });
+}
+
+// Dibujar jugador
+function dibujarJugador() {
+    ctx.fillStyle = "green";
+    ctx.fillRect(jugador.x, jugador.y, jugador.size, jugador.size);
+}
+
+// Dibujar obstáculos
+function dibujarObstaculos() {
+    ctx.fillStyle = "red";
+    obstaculos.forEach(obs => {
+        ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+    });
+}
+
+// Mover obstáculos
+function moverObstaculos() {
+    obstaculos.forEach(obs => {
+        obs.x -= obs.speed;
+    });
+
+    // Eliminar los que salen de pantalla
+    obstaculos = obstaculos.filter(obs => obs.x + obs.width > 0);
+}
+
+// Detectar colisión (AABB)
+function colision(a, b) {
+    return a.x < b.x + b.width &&
+           a.x + a.size > b.x &&
+           a.y < b.y + b.height &&
+           a.y + a.size > b.y;
+}
+
+// Movimiento jugador
+document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowUp") jugador.y -= jugador.speed;
+    if (e.key === "ArrowDown") jugador.y += jugador.speed;
+
+    // Limitar dentro del canvas
+    if (jugador.y < 0) jugador.y = 0;
+    if (jugador.y + jugador.size > canvas.height)
+        jugador.y = canvas.height - jugador.size;
+});
+
+// Bucle principal
+function actualizar() {
+    if (gameOver) {
+        ctx.fillStyle = "black";
+        ctx.font = "30px Arial";
+        ctx.fillText("GAME OVER", 220, 150);
+        return;
+    }
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    dibujarJugador();
+    dibujarObstaculos();
+    moverObstaculos();
+
+    // Comprobar colisiones
+    obstaculos.forEach(obs => {
+        if (colision(jugador, obs)) {
+            gameOver = true;
+        }
+    });
+
+    requestAnimationFrame(actualizar);
+}
+
+// Generar obstáculos cada 1.5 segundos
+setInterval(nuevoObstaculo, 1500);
+
+actualizar();
+</script>
+
+</body>
+</html>
