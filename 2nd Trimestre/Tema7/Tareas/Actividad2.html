@@ -23,7 +23,7 @@
             
             //Comprobar el valor del campo de correo que tenga un @
             var email = document.getElementById("email").value;
-            if (!email.includes("@")) {
+            if (!email.value.includes("@")) {
                 console.log("El correo no es válido");
             } else {
                 //Enviar el formulario
